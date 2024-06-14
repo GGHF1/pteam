@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Main Page</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/mainstyle.css"> 
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container">
+            <img src="/images/logo.png" alt="Gaming Store Logo">
+            <button class="mobile-drawer-toggle">
+                <img src="/images/drawer.png" alt="Menu Icon">
+            </button>            
+            <div class="mobile-drawer">
+                <a href="/users" class="btn btn-lg btn-primary">Profile</a>
+                <a href="/store" class="btn btn-lg btn-primary">Store</a>
+                <a href="/gamelibrary" class="btn btn-lg btn-primary">Game Library</a>
+                <a th:if="${hasPendingOrders}" th:href="@{/checkout}" class="btn btn-lg btn-primary">Pending Order</a>
+                <a href="/logout" class="btn btn-lg btn-primary">Logout</a>
+            </div>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="single-card">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <div class="image-container">
+                        <img class="game-photo" alt="Game Photo">
+                    </div>
+                    <div class="content">
+                        <h3>New Arrival</h3>
+                        <p>This exciting new game is now available on our store. Experience the thrill today!</p>
+                        <a href="/store" class="btn btn-lg btn-primary">Check it out</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="content">
+                        <h3>Why Pteam?</h3>
+                        <p>Pteam is an innovative platform dedicated to revolutionizing the gaming experience. With a focus on providing seamless transactions, Pteam offers users a convenient way to explore and purchase a diverse range of games. Through intuitive interfaces and robust security measures, Pteam ensures a safe and enjoyable shopping environment for gamers of all levels. Our commitment to excellence extends beyond transactions, as we strive to foster a vibrant gaming community through engaging content and personalized recommendations. Join Pteam today to unlock a world of gaming possibilities and embark on unforgettable adventures in virtual realms. Discover, connect, and game with Pteam.</p>
+                        <a href="/store" class="btn btn-lg btn-primary">Check out the store!</a>
+                    </div>
+                    <div class="image-container2">
+                        <img class="game-photo2" src="/images/all.png" alt="Game imgs">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include JavaScript for dynamically loading game image -->
+    <script src="/js/indexscript.js"></script> 
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var gameData = /*[[${games}]]*/ null; // Get the last game
+        /*]]>*/
+    </script>
+    <script src="/js/lastgame.js"></script>
+</body>
+</html>

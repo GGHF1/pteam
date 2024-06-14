@@ -1,0 +1,142 @@
+body {
+    background-color: #181B2F;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.upper-banner {
+    background-color: #101322; /* Darker color for the banner */
+    padding: 20px 0; /* Adjust padding as needed */
+    position: fixed; /* Fix the banner at the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 75px;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.upper-banner .container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+    position: relative; /* To position the back arrow and logo correctly */
+    height: 100%; /* Ensure the container takes the full height of the banner */
+}
+
+.upper-banner .back-arrow {
+    position: absolute;
+    left: 10px; /* Adjust distance from the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    height: 30px;
+    width: 30px;
+}
+
+.upper-banner .logo {
+    height: 50px;
+    width: 145px;
+    object-fit: contain;
+}
+
+
+.container2 {
+    margin-top: 100px;
+    max-width: 100%;
+    padding: 0 10px; /* Add padding to ensure content does not touch the edges */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Align items in a column */
+}
+
+
+h1 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.table {
+    background-color: #1c2039;
+    color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    border: none;
+}
+
+.table th {
+    background-color: #2a2f4e;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+.table td {
+    padding: 15px;
+    border-top: 1px solid #2a2f4e;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #181B2F;
+    color: #FFFFFF;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Modal styles */
+.modal-content {
+    background-color: #20243A;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #44475A;
+}
+
+.modal-header .modal-title {
+    color: #FFFFFF;
+}
+
+.modal-body {
+    color: #FFFFFF;
+}
+
+.modal-footer {
+    border-top: 1px solid #44475A;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #44475A;
+    border-color: #44475A;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #5A5F78;
+    border-color: #5A5F78;
+}
+
+.close {
+    color: #FFFFFF; /* Color of close button */
+    outline: none; /* Remove outline */
+}
+
+.close:hover,
+.close:focus {
+    color: #CCCCCC; /* Hover/focus color of close button */
+}

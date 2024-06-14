@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Registration</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/registerstyle.css">
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container1">
+            <img src="/images/logo.png" alt="Gaming Store Logo" class="logo">
+        </div>
+    </div>
+    <div class="container">
+        <h1>User Registration</h1>
+        <form action="/register" method="post" novalidate>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fName" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" minlength="4" required>
+                    <div id="usernameError" class="error-message"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lName" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <div id="confirmPasswordError" class="error-message"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" name="country.id" required>
+                        <option value="">Select Country</option>
+                        <th:block th:each="country : ${countries}">
+                            <option th:value="${country.id}" th:text="${country.name}"></option>
+                        </th:block>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dateOfBirth" required>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number (without code)</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" maxlength="15" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="emailAddress" maxlength="254" required>
+                </div>
+            </div>
+            <div th:if="${param.error}" class="alert alert-danger mt-3">
+                <span th:if="${error == 'username'}">Username already exists. Please choose another.</span>
+                <span th:if="${error == 'phoneNumber'}">Phone number already in use. Please use another.</span>
+                <span th:if="${error == 'emailAddress'}">Email address already exists. Please use another.</span>
+            </div>            
+            <button type="submit" class="btn btn-primary btn-register" disabled>Register</button>
+        </form>
+    </div>
+    <script src="/js/registerscript.js"></script>
+</body>
+</html>

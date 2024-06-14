@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Purchase History</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/historystyle.css"> 
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container1">
+            <a href="/users">
+                <img src="/images/back.png" alt="BackToMain" class="back-arrow">
+            </a>
+            <img src="/images/logo.png" alt="Gaming Store Logo" class="logo">
+        </div>
+    </div>
+    <div class="container2">
+        <h1>Purchase History</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Games</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate over the purchase history -->
+                <tr th:each="payment : ${purchaseHistory}" data-toggle="modal" th:data-target="'#modal'+${payment.id}" style="cursor: pointer;">
+                    <td><span th:text="${#temporals.format(payment.purchasedTime, 'MMM d, yyyy', new java.util.Locale('en'))}"></span></td>
+                    <td>
+                        <!-- Iterate over the order items for the current payment and display the game titles -->
+                        <ul>
+                            <li th:each="orderItem : ${payment.order.orderItems}" th:text="${orderItem.game.title}"></li>
+                        </ul>
+                    </td>
+                    <td><span th:text="${payment.order.totalPrice}"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Modals -->
+    <div th:each="payment : ${purchaseHistory}">
+        <div class="modal fade" th:id="'modal'+${payment.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Purchase Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Order ID:</strong> <span th:text="${payment.order.id}"></span></p>
+                        <p><strong>Card Number:</strong> <span th:text="${payment.card.cardNumber}"></span></p>
+                        <p><strong>Billing Address:</strong> <span th:text="${payment.billingAddress}"></span></p>
+                        <p><strong>City:</strong> <span th:text="${payment.city}"></span></p>
+                        <p><strong>Zip:</strong> <span th:text="${payment.zip}"></span></p>
+                        <p><strong>Purchased Time:</strong> <span th:text="${#temporals.format(payment.purchasedTime, 'MMM d, yyyy h:mm a', new java.util.Locale('en'))}"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

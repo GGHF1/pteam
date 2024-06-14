@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Login</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/loginstyle.css"> 
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container1">
+            <img src="/images/logo.png" alt="Gaming Store Logo" class="logo">
+        </div>
+    </div>
+    <div class="container">
+        <h1>User Login</h1>
+        
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-login">Login</button>
+            
+            <div th:if="${param.error}" class="alert alert-danger mt-3">
+                Invalid username or password. Please try again.
+            </div>
+        </form>
+        
+        <div class="link-container">
+            <p>Don't have an account? <a href="/register">Register here</a></p>
+            <p>Can't login? <a href="/restore-password">Restore password</a></p>
+        </div>
+    </div>
+</body>
+</html>

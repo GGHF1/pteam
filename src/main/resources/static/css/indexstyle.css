@@ -1,0 +1,206 @@
+/* Base styles */
+body {
+    background-color: #181B2F;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.upper-banner {
+    background-color: #101322; /* Darker color for the banner */
+    padding: 20px 0; /* Adjust padding as needed */
+    position: fixed; /* Fix the banner at the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 90px;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.upper-banner .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+.upper-banner img {
+    height: 50px;
+    width: 145px;
+    object-fit: contain;
+    overflow: auto;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-primary {
+    background-color: #101322;
+    border: none;
+    margin: 0 10px;
+}
+
+.btn-primary:hover {
+    background-color: #155CB6;
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    .upper-banner .container {
+        flex-direction: row; /* Change direction to row for logo and drawer icon */
+        align-items: center; /* Center items vertically */
+        justify-content: space-between;
+    }
+
+    .button-container {
+        display: none; /* Hide the button container on mobile */
+    }
+
+    /* Styles for the mobile drawer toggle button */
+    .mobile-drawer-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        cursor: pointer;
+        position: absolute;
+        top: auto;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .mobile-drawer-toggle img {
+        height: 30px; /* Adjust the height of the icon */
+        width: auto; /* Maintain aspect ratio */
+    } 
+
+    /* Styles for the mobile drawer */
+    .mobile-drawer {
+        display: none; /* Hide the mobile drawer by default */
+        position: fixed; /* Fix the drawer to the viewport */
+        top: 0;
+        right: -250px; /* Hide off-screen to the right */
+        bottom: 0;
+        background-color: #101322;
+        padding: 10px;
+        width: 70%;
+        max-width: 250px;
+        z-index: 9999; /* Ensure it appears above other content */
+        overflow-y: auto; /* Allow scrolling if content overflows */
+        transition: right 0.3s ease; /* Smooth transition */
+    }
+
+    /* Show the mobile drawer when toggle button is clicked */
+    .mobile-drawer.active {
+        right: 0; /* Slide in from the right */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Adjust styling for the links inside the mobile drawer */
+    .mobile-drawer.active a {
+        margin-bottom: 10px;
+    }
+
+    /* Adjust logo position for mobile */
+    .upper-banner img {
+        margin: auto; /* Center the image */
+    }
+
+    .single-card .row {
+        flex-direction: column; /* Stack the columns vertically */
+    }
+
+    .image-container, .image-container2 {
+        padding: 10px; /* Reduce padding to fit content better on small screens */
+    }
+
+    .image-container img, .image-container2 img {
+        border-radius: 10px; /* Adjust border radius for a smaller screen */
+    }
+
+    .content {
+        text-align: left; /* Align text to the left for better readability */
+        margin: 10px; /* Reduce margin for better spacing on small screens */
+    }
+
+    .content h3 {
+        font-size: 1.5rem; /* Reduce font size for headings */
+        color: #CCCCCC;
+        margin-bottom: 10px;
+    }
+
+    .content p {
+        font-size: 1rem; /* Reduce font size for paragraphs */
+        color: #DDDDDD;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        width: 100%; /* Make buttons full-width on mobile */
+        margin: 10px 0; /* Add vertical margin between buttons */
+    }
+}
+
+/* Hide the mobile drawer toggle button on larger screens */
+@media only screen and (min-width: 601px) {
+    .mobile-drawer-toggle {
+        display: none;
+    }
+}
+
+.single-card {
+    background-color: #20243A;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto; /* Center the card horizontally */
+    padding: 20px;
+    margin-top: 130px;
+}
+
+.single-card .row {
+    margin: 0;
+}
+
+.image-container, .image-container2 {
+    padding: 20px;
+}
+
+.image-container img, .image-container2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.content {
+    text-align: center;
+    margin: 20px;
+}
+
+.content h3 {
+    font-size: 1.8rem;
+    color: #CCCCCC;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.2rem;
+    color: #DDDDDD;
+    margin-bottom: 20px;
+}

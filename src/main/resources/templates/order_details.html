@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Order Details</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/orderstyle.css"> 
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container1">
+            <a href="/store">
+                <img src="/images/back.png" alt="BackToMain" class="back-arrow">
+            </a>
+            <img src="/images/logo.png" alt="Gaming Store Logo" class="logo">
+        </div>
+    </div>
+    <div class="container">
+        <h1>Order Details</h1>
+        <div class="game-container">
+            <div th:each="cartItem : ${cartItems}" class="game-card">
+                <img class="game-photo" th:src="'/images/game' + ${cartItem.game.id} + '.png'" alt="Game Photo">
+                <div class="card-content">
+                    <h5 class="game-title" th:text="${cartItem.game.title}"></h5>
+                    <p class="price" th:text="'Price: $' + ${cartItem.game.price}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="order-details">
+            <h4>Total Price: <span th:text="${order.totalPrice}"></span></h4>
+        </div>
+        <div class="button-container">
+            <a href="/payment" class="btn btn-primary">Proceed to Payment</a>  
+            <form th:action="@{/order/delete/{orderId}(orderId=${order.id})}" method="post">
+                <input type="hidden" name="orderId" th:value="${order.id}" />
+                <button type="submit" class="cancel-button">Cancel Order</button>
+            </form>
+        </div>                
+    </div>
+</body>
+</html>

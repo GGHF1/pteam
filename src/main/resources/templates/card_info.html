@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Added cards</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/card_infostyle.css"> 
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container1">
+            <a href="/users">
+                <img src="/images/back.png" alt="BackToUser" class="back-arrow">
+            </a>
+            <img src="/images/logo.png" alt="Gaming Store Logo" class="logo">
+        </div>
+    </div>
+    <div class="container2">
+        <div class="checkout-box">
+            <h1>Added cards</h1>
+            <div class="card-container">
+                <div th:each="card, cardStat : ${userCards}" class="card-body">
+                    <h2 class="card-title">Card <span th:text="__${#vars.cardStat.index + 1}__"></span></h2>
+                    <hr class="card-divider">
+                    <!-- Adjusted card number display based on service type -->
+                    <p class="card-number">
+                        <span th:if="${card.serviceType == 'Mastercard' || card.serviceType == 'Visa'}">************</span>
+                        <span th:if="${card.serviceType == 'American Express'}">***********</span>
+                        <span th:text="${#strings.substring(card.cardNumber, card.cardNumber.length() - 4)}"></span>
+                    </p>
+                    <p class="card-expiration"><span th:text="${#temporals.format(card.expirationDate, 'MM/yy')}"></span></p>
+                    <p class="card-status" th:text="${card.cardStatus}" th:attr="data-status=${card.cardStatus}"></p>
+                    <!-- Display Mastercard logo if service type is Mastercard -->
+                    <img th:if="${card.serviceType == 'Mastercard'}" src="/images/MA.png" class="mastercard-logo" alt="Mastercard Logo">
+                    <img th:if="${card.serviceType == 'Visa'}" src="/images/VS.png" class="visa-logo" alt="Visa Logo">
+                    <img th:if="${card.serviceType == 'American Express'}" src="/images/AMEX.png" class="amex-logo" alt="Amex Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

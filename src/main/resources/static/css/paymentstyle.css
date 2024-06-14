@@ -1,0 +1,130 @@
+body {
+    background-color: #181B2F;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.checkout-box {
+    background-color: #20243A;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+}
+
+h1, h2, h3 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.order-section, .payment-section {
+    margin-bottom: 30px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.game-card {
+    display: flex;
+    align-items: center;
+    background-color: #2C2F4A;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.game-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 14px;
+    color: #BBBBBB;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #CCCCCC;
+}
+
+.form-group input, .form-group select {
+    background-color: #2C2F4A;
+    color: #FFFFFF;
+    border: 1px solid #44475A;
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition for smooth effect */
+}
+
+.form-group input:focus, .form-group select:focus {
+    background-color: #2C2F4A; /* Maintain background color on focus */
+    color: #FFFFFF; /* Maintain text color on focus */
+    outline: none; /* Remove default outline */
+    border-color: #00BFFF; /* Optional: Add a border color on focus */
+}
+
+.form-group input[readonly] {
+    background-color: #2C2F4A; /* Ensure read-only fields have the same background color */
+    color: #FFFFFF; /* Ensure read-only fields have the same text color */
+}
+
+.btn-primary {
+    background-color: #00BFFF;
+    border-color: #00BFFF;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #009ACD;
+    border-color: #009ACD;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.header .logo {
+    height: 50px;
+    width: auto;
+}
+

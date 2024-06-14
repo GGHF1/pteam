@@ -1,0 +1,188 @@
+body {
+    background-color: #181B2F;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.upper-banner {
+    background-color: #101322; /* Darker color for the banner */
+    padding: 20px 0; /* Adjust padding as needed */
+    position: fixed; /* Fix the banner at the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 75px;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.upper-banner .container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+    position: relative; /* To position the back arrow and logo correctly */
+    height: 100%; /* Ensure the container takes the full height of the banner */
+}
+
+.upper-banner .back-arrow {
+    position: absolute;
+    left: 10px; /* Adjust distance from the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    height: 30px;
+    width: 30px;
+}
+
+.upper-banner .logo {
+    height: 50px;
+    width: 145px;
+    object-fit: contain;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.card-body {
+    background-color: #2C3E50;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    overflow: hidden;
+    width: 250px;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-divider {
+    border-top: 1px solid #FFFFFF;
+    margin-bottom: 0px;
+}
+
+.card-number {
+    font-size: 16px;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.card-expiration{
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+
+}
+
+.card-status {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Add hover effect */
+.card-body:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Conditional styling based on card status */
+.card-status[data-status="Active"] {
+    color: #00FF00; /* Neon green */
+}
+
+.card-status[data-status="Inactive"] {
+    color: #FF0000; /* Red */
+}
+
+/* Mastercard logo styling */
+.mastercard-logo {
+    position: absolute;
+    width: 40px; 
+    height: 40px; 
+    margin-left: 170px;
+    margin-top: 80px
+}
+
+.visa-logo {
+    position: absolute;
+    width: 40px; 
+    height: 40px; 
+    margin-left: 170px;
+    margin-top: 80px
+}
+
+.amex-logo{
+    position: absolute;
+    width: 40px; 
+    height: 30px; 
+    margin-left: 170px;
+    margin-top: 85px
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding: 20px;
+}
+.checkout-box {
+    background-color: #20243A;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+}
+@media (max-width: 600px) {
+   .upper-banner .container1 {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .upper-banner .logo {
+        margin: auto; /* Center the image */
+    }
+
+    .card-container {
+        grid-template-columns: 1fr; /* Display cards in a single column */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+
+    .card-body {
+        width: 100%; /* Make card full width */
+        max-width: 250px;
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .card-divider {
+        display: none; /* Hide card divider on mobile */
+    }
+
+    .mastercard-logo,
+    .visa-logo {
+        position: absolute;
+        margin-left: 140px;
+        margin-top: 60px;
+    }
+
+    .container2 {
+        margin-top: 80px; /* Adjust margin from the top */
+    }
+
+    .checkout-box {
+        padding: 20px; /* Adjust padding for better spacing */
+        max-width: 100%; /* Allow box to take full width of the screen */
+    }
+}

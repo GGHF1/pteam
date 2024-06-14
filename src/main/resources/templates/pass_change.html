@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Change Password</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/change_password.css">
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container1">
+            <a href="/users">
+                <img src="/images/back.png" alt="BackToUser" class="back-arrow">
+            </a>
+            <img src="/images/logo.png" alt="Gaming Store Logo" class="logo">
+        </div>
+    </div>
+    <div class="container2">
+        <div class="card">
+            <div class="card-body">
+                <h2>Change Password</h2>
+                <form action="/change-password" method="post" id="changePasswordForm">
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                        <div id="passwordRequirements" class="requirements"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmNewPassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" required>
+                        <div id="confirmPasswordError" class="error-message"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" disabled>Change Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/password_validation.js"></script>
+</body>
+</html>

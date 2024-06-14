@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Profile</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/userstyle.css">
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container1">
+            <a href="/main">
+                <img src="/images/back.png" alt="BackToMain" class="back-arrow">
+            </a>
+            <img src="/images/logo.png" alt="Gaming Store Logo" class="logo">
+            <button class="mobile-drawer-toggle">
+                <img src="/images/drawer.png" alt="Menu Icon">
+            </button>            
+            <div class="mobile-drawer">
+                <a href="/addcard" class="btn btn-primary btn-lg">Add Card</a>
+                <a href="/cardinfo" class="btn btn-primary btn-lg">View Cards</a>
+                <a href="/change-password" class="btn btn-primary btn-lg">Change Password</a>
+                <a href="/purchase-history" class="btn btn-lg btn-primary">Purchase History</a>
+            </div>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Username:</strong></div>
+                    <div class="col-sm-8" th:text="${user.username}"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>First Name:</strong></div>
+                    <div class="col-sm-8" th:text="${user.fName}"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Last Name:</strong></div>
+                    <div class="col-sm-8" th:text="${user.lName}"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Email:</strong></div>
+                    <div class="col-sm-8" th:text="${user.emailAddress}"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Date of Birth:</strong></div>
+                    <div class="col-sm-8" th:text="${#dates.format(user.dateOfBirth, 'yyyy-MM-dd')}"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Country:</strong></div>
+                    <div class="col-sm-8" th:text="${user.country.name}"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Phone Number:</strong></div>
+                    <div class="col-sm-8" th:text="${user.phoneNumber}"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Gender:</strong></div>
+                    <div class="col-sm-8" th:text="${user.gender}"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Date of Registration:</strong></div>
+                    <div class="col-sm-8" th:text="${#dates.format(user.dateOfRegistration, 'yyyy-MM-dd')}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/indexscript.js"></script> 
+</body>
+</html>

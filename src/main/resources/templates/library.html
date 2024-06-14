@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Game Library</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/librarystyle.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="upper-banner">
+        <div class="container1">
+            <a href="/main">
+                <img src="/images/back.png" alt="BackToMain" class="back-arrow">
+            </a>
+            <img src="/images/logo.png" alt="Gaming Store Logo" class="logo">
+        </div>
+    </div>
+    <div class="container">
+        <h1>Game Library</h1>
+        <div class="row">
+            <th:block th:each="game : ${games}">
+                <div class="col-12 mb-4">
+                    <div class="card game-card">
+                        <img class="game-photo" th:src="'/images/game' + ${game.id} + '.png'" alt="Game Photo">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${game.title}"></h5>
+                        </div>
+                        <div class="button-container">
+                            <button type="button" class="btn btn-primary">Play</button>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" th:data-target="'#gameModal' + ${game.id}">About</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal for each game -->
+                    <div class="modal fade" th:id="'gameModal' + ${game.id}" tabindex="-1" role="dialog" aria-labelledby="gameModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" th:text="${game.title}"></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" th:text="${game.description}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</body>
+</html>

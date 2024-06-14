@@ -1,0 +1,77 @@
+body {
+    background-color: #181B2F;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.container2 {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 90px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+ol li {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+ol li strong {
+    color: #ffffff;
+    display: block;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.upper-banner {
+    background-color: #101322; /* Darker color for the banner */
+    padding: 20px 0; /* Adjust padding as needed */
+    position: fixed; /* Fix the banner at the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 75px;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.upper-banner .container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+    position: relative; /* To position the back arrow and logo correctly */
+    height: 100%; /* Ensure the container takes the full height of the banner */
+}
+
+.upper-banner .back-arrow {
+    position: absolute;
+    left: 10px; /* Adjust distance from the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    height: 30px;
+    width: 30px;
+}
+
+.upper-banner .logo {
+    height: 50px;
+    width: 145px;
+    object-fit: contain;
+}

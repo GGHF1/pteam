@@ -1,0 +1,154 @@
+body {
+    background-color: #181B2F;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.upper-banner {
+    background-color: #101322; /* Darker color for the banner */
+    padding: 20px 0; /* Adjust padding as needed */
+    position: fixed; /* Fix the banner at the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 75px;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.upper-banner .container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+    position: relative; /* To position the back arrow and logo correctly */
+    height: 100%; /* Ensure the container takes the full height of the banner */
+}
+
+.upper-banner .back-arrow {
+    position: absolute;
+    left: 10px; /* Adjust distance from the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    height: 30px;
+    width: 30px;
+}
+
+.upper-banner .logo {
+    height: 50px;
+    width: 145px;
+    object-fit: contain;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.game-card {
+    background-color: #20243A; /* Set background color */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transition */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.game-photo {
+    width: 90px; /* Adjust as needed */
+    height: 90px;
+    margin-right: 20px;
+    object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+    border-radius: 15px;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.game-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 1rem;
+    color: #888;
+    margin-top: 0;
+}
+
+h1 {
+    margin-top: 90px;
+    margin-bottom: 20px;
+}
+
+h2, h3, h4, h5 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.order-details {
+    background-color: #20243A; /* Set background color */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transition */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex; /* Use flexbox to align buttons in a row */
+   
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.btn-primary,
+.cancel-button {
+    background-color: #007bff;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.cancel-button {
+    background-color: #dc3545;
+    margin-left: 20px;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+@media only screen and (max-width: 600px) {
+    .upper-banner .container1 {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center items horizontally */
+        margin-top: 10px; /* Reduce top margin */
+    }
+
+    .btn-primary,
+    .cancel-button {
+        width: 290px; /* Make buttons full-width */
+        margin: 5px 0; /* Add vertical margin */
+    }
+    
+}

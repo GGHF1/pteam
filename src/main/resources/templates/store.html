@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pteam: Store</title>
+    <link rel="icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/storestyle.css"> 
+</head>
+<body>
+    <div class="container">
+        
+        <div class="upper-banner">
+            <div class="container">
+                <div id="overlay" class="overlay"></div>
+                <button id="drawerToggle" class="drawer-toggle">Sort / Filter</button> 
+                <div id="drawer" class="drawer">
+                    <button id="sortHighToLowBtn" class="btn btn-draw">Sort by Price (High to Low)</button><br>
+                    <button id="sortLowToHighBtn" class="btn btn-draw">Sort by Price (Low to High)</button><br>
+                    <button id="filterByGenreBtn" class="btn btn-draw">Filter by Genre</button><br>
+                    <div id="genreOptions" style="display: none;">
+                        <select id="genreDropdown" class="form-control"></select>
+                    </div>
+                    <button id="filterByPriceBtn" class="btn btn-draw">Filter by Price</button><br>
+                    <div id="priceOptions" style="display: none;">
+                        <input type="range" id="minPrice" name="minPrice" min="0" max="100" value="0" step="1">
+                        <label for="minPrice">Min Price: <span id="minPriceValue">0</span></label>
+                        <input type="range" id="maxPrice" name="maxPrice" min="0" max="100" value="100" step="1">
+                        <label for="maxPrice">Max Price: <span id="maxPriceValue">100</span></label>
+                        
+                    </div>
+
+                </div>
+                <button id="resetBtn" class="btn btn-rst">Reset</button>
+                <div class="cart-icon" data-toggle="modal" data-target="#cartModal">
+                    <img src="/images/cart.png" alt="Cart Icon">
+                    <span id="cartCount" class="cart-count">0</span>
+                    <a th:if="${hasPendingOrders}" th:href="@{/checkout}" class="btn btn-success">View Pending Orders</a>
+                </div>
+            </div>
+        </div>
+        <div class="game-container">
+            <!-- Loop through each game and display it as a card -->
+            <div th:each="game : ${games}" class="game-card">
+                <!-- Inside the card-body div for each game -->
+                <div class="card-body">
+                    <h5 class="card-title game-title" th:text="${game.title}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted game-info" th:text="${game.genre}"></h6>
+                    <!-- Replace the description with a custom photo -->
+                    <img class="game-photo" alt="Game Photo">
+                    <div class="price-container">
+                        <p class="price" th:text="'Price: $' + ${game.price}"></p>
+                    </div>
+                    <div class="game-details" style="display: none;">
+                        <p class="game-description" style="display: none;" th:text="'Description: ' + ${game.description}"></p>
+                        <p class="game-developer" style="display: none;" th:text="'Developer: ' + ${game.developer}"></p>
+                        <p class="game-publisher" style="display: none;" th:text="'Publisher: ' + ${game.publisher}"></p>
+                        <p class="game-release-date" style="display: none;" th:text="'Release Date: ' + ${#dates.format(game.releaseDate, 'dd-MM-yyyy')}"></p>
+                    </div>
+                    <!-- Buy button -->
+                    <div class="button-container">
+                        <form th:action="@{/addToCart/{gameId}(gameId=${game.id})}" method="post">
+                            <!-- If the game is purchased, disable the button -->
+                            <button type="submit" th:if="${purchasedMap[game.id]}" class="btn btn-primary buy-btn" th:text="'Purchased'" disabled="disabled"></button>
+                            <!-- If the game is not purchased, display the Buy button -->
+                            <button type="submit" th:unless="${purchasedMap[game.id]}" class="btn btn-primary buy-btn" th:text="'Add To Cart'"></button>
+                        </form>
+                        <button class="btn btn-secondary info-btn">Info</button>  
+                    </div>                                     
+                </div>
+            </div>
+        </div>
+        <!-- Button to navigate back to the main page -->
+        <a href="/main" class="btn btn-back">Back to Main Page</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="gameModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="gameModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Game information will be populated here -->
+                    <p class="game-description"></p>
+                    <p class="game-developer"></p>
+                    <p class="game-publisher"></p>
+                    <p class="game-release-date"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for displaying cart items -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Cart Items</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="cartItems">
+                    <!-- Cart items will be populated here dynamically -->
+                </div>
+                <div class="modal-footer">
+                    <p id="totalPrice">Total Price: $0.00</p>
+                    <form id="checkoutForm" action="/checkout" method="post">
+                        <input type="hidden" id="totalPriceInput" name="totalPrice"> <!-- This input captures the total price -->
+                        <button type="submit" class="btn btn-primary">Checkout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var gameData = /*[[${games}]]*/ [];
+        /*]]>*/
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/modalscript.js"></script>
+    <script src="/js/cartscript.js"></script>
+    <script src="/js/pngscript.js"></script>	
+    <script src="/js/storesort.js"></script>
+    <script src="/js/storefilter.js"></script>
+    <script src="/js/backdrop.js"></script>
+</body>
+</html>

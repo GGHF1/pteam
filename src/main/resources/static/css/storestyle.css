@@ -1,0 +1,370 @@
+/* Reset default styles */
+body {
+    background-color: #181B2F;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.upper-banner {
+    background-color: #101322; /* Darker color for the banner */
+    padding: 20px 0; /* Adjust padding as needed */
+    position: fixed; /* Fix the banner at the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 75px;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.upper-banner .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+
+/* Container styles */
+.container {
+    margin-top: 100px;
+    text-align: center;
+}
+
+/* Game container styles */
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Game card styles */
+.game-card {
+    background-color: #20243A;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Set height to auto */
+    overflow: hidden; /* Hide overflowing content */
+    width: 250px;
+}
+
+/* Add hover effect */
+.game-card:hover {
+    transform: translateY(-5px); /* Move the card up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow effect on hover */
+}
+
+/* Card content container */
+.card-content {
+    flex: 1; /* Grow to fill remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Game title styles */
+.game-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: auto; /* Push the title to the top */
+    white-space: nowrap; /* Prevent wrapping to multiple lines */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Display an ellipsis (...) to indicate overflow */
+}
+
+/* Game info styles */
+.game-info {
+    font-size: 1rem;
+    margin-top: 10px; /* Push other attributes to the bottom */
+}
+
+/* Price styles */
+.price {
+    margin-top: 20px; /* Push the price to the bottom */
+}
+
+/* Image styles */
+.game-photo {
+    width: 150px; /* Set the width to fill the card */
+    height: 150px; /* Set a fixed height for the image */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+    margin-top: 10px; /* Add margin for spacing */
+    border-radius: 15px; /* Set border radius for rounded corners */
+}
+
+/* Modal styles */
+.modal {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+    background-color: #20243A;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+
+.modal-title {
+    color: #FFFFFF; /* Title color */
+}
+
+.modal-body {
+    padding: 20px; /* Add padding to modal body */
+    color: #FFFFFF;
+}
+
+.modal-body p {
+    margin-bottom: 10px; /* Add margin between paragraphs */
+}
+
+.modal-header {
+    border-bottom: 1px solid #44475A;
+}
+
+.close {
+    color: #FFFFFF; /* Color of close button */
+    outline: none; /* Remove outline */
+}
+
+.close:hover,
+.close:focus {
+    color: #CCCCCC; /* Hover/focus color of close button */
+}
+
+/* Button styles */
+.button-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: flex-end; /* Align items to the end (right side) of the container */
+    margin-top: 10px; /* Add some margin from the top */
+}
+
+.btn {
+    margin-right: 15px; /* Add some margin between buttons */
+}
+/* Back to Main Page button styles */
+.btn-back {
+    color: #FFFFFF; /* Text color */
+    background-color: #007bff; /* Button background color */
+    border-color: #007bff; /* Border color */
+    padding: 0.5rem 1rem; /* Padding */
+    border-radius: 0.25rem; /* Border radius */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transition effect */
+    width: 96%;
+    margin: 0 auto;
+}
+
+.btn-back:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+    border-color: #0056b3; /* Darker border color on hover */
+    color: #FFFFFF; /* Text color on hover */
+}
+
+/* Add styles for the cart icon */
+.cart-icon {
+    position: fixed; /* Fixed position */
+    top: 20px; /* Adjust top position */
+    right: 20px; /* Adjust right position */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Adjust the size of the cart icon */
+.cart-icon img {
+    width: 30px; /* Set the width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.cart-icon:hover {
+    cursor: pointer;
+}
+
+.remove-btn {
+    background-color: #dc3545; /* Red background color */
+    color: white; /* White text color */
+    border: none; /* Remove button border */
+    border-radius: 10%; /* Make the button circular */
+    width: 20px; /* Set button width */
+    height: 25px; /* Set button height */
+    font-size: 14px; /* Set font size */
+    line-height: 20px; /* Center text vertically */
+    text-align: center; /* Center text horizontally */
+    padding: 0; /* Remove default padding */
+    margin-left: 5px; /* Add margin between button and text */
+}
+
+#cartItems p {
+    margin-bottom: 10px; /* Add margin between cart items */
+}
+
+.drawer-toggle {
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Center vertically */
+    left: 70px; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to truly center */
+    background-color: #fc8b24; /* Add background color */
+    border: 1px solid #fc8b24; /* Add border */
+    border-radius: 4px; /* Add border radius */
+    padding: 8px 12px; /* Add padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    transition: background-color 0.3s, color 0.3s; /* Add transition */
+    outline: none;
+}
+
+.drawer-toggle:hover {
+    background-color: #f8a252; /* Change background color on hover */
+    outline: none;
+}
+.drawer-toggle:focus {
+    outline: none;
+}
+/* Drawer styles */
+.drawer {
+    position: fixed; /* Position the drawer relative to the viewport */
+    top: 70px; 
+    left: 0; /* Align to the left */
+    width: 230px; /* Adjust drawer width as needed */
+    background-color: #101322;
+    z-index: 1000; /* Ensure it appears above other content */
+    opacity: 0; /* Initial opacity set to 0 */
+    height: 0; /* Initial height set to 0 */
+    overflow: hidden; /* Hide overflow content */
+    transition: height 0.3s ease, opacity 0.3s ease; 
+}
+
+.drawer.open {
+    opacity: 1; /* Set opacity to 1 when open */
+    height: auto; /* Show the drawer when it's open */
+}
+
+.btn-draw {
+    display: block;
+    width: 100%;
+    padding: 8px 0; /* Reduce padding for a smaller size */
+    text-align: center;
+    color: #ffffff;
+    border-color: #101322;
+    background-color: #101322;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s; /* Added transition for background color */
+    font-size: 14px; /* Reduce font size for smaller buttons */
+    outline: none; /* Remove default outline */
+    border: none; /* Ensure no border shows on focus/active */
+}
+
+.btn-draw:hover, .btn-draw:focus, .btn-draw:active {
+    color: #ffffff;
+    background-color: #20243A !important; /* Add !important */
+    outline: none; /* Remove the blue outline */
+    border-color: #20243A !important;
+    box-shadow: none; /* Remove any default box shadow */
+}
+
+.btn-rst {
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 40px; /* Center vertically */
+    left: 175px; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to truly center */
+    background-color: #fc8b24; /* Add background color */
+    border: 1px solid #fc8b24; /* Add border */
+    border-color: #fc8b24;
+    border-radius: 4px; /* Add border radius */
+    padding: 8px 12px; /* Add padding */
+    transition: background-color 0.3s, color 0.3s; /* Add transition */
+    outline: none;
+}
+
+.btn-rst:hover, .btn-rst:focus{
+    background-color: #f8a252; /* Change background color on hover */
+    border-color: #f8a252;
+    outline: none;
+    box-shadow: none; /* Remove any default box shadow */
+}
+.btn-rst:active {
+    outline: none;
+    box-shadow: none; /* Remove any default box shadow */
+}
+
+/* Style for the genre dropdown */
+#genreDropdown.form-control {
+    background-color: #101322; /* Match background color of game cards */
+    color: #FFFFFF; /* White text color */
+    border: 1px solid #101322; /* Border color to match the drawer background */
+    border-radius: 4px; /* Slightly rounded corners */
+    padding: 8px; /* Padding for inner content */
+    font-size: 14px; /* Font size matching game info */
+    text-align: center;
+    outline: none; /* Remove default outline */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    width: 100%; /* Full width */
+    max-width: 250px; /* Match the width of game cards */
+    margin-bottom: 10px;
+    margin-top: -20px;
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition effect */
+    appearance: none; /* Remove default dropdown arrow for custom styling */
+    -webkit-appearance: none; /* Remove default dropdown arrow for Safari */
+    -moz-appearance: none; /* Remove default dropdown arrow for Firefox */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hover effect */
+#genreDropdown.form-control:hover {
+    background-color: #101322; /* Slightly lighter background color on hover */
+}
+
+/* Style for the price range slider */
+#priceOptions input[type="range"] {
+    width: 100%; /* Full width */
+    -webkit-appearance: none; /* Remove default appearance */
+    appearance: none; /* Add standard appearance property */
+    background: #2C3E50; /* Match background color */
+    height: 5px; /* Height of the slider */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Slightly transparent */
+    transition: opacity 0.3s; /* Smooth transition */
+}
+
+#priceOptions input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default appearance */
+    appearance: none;
+    width: 15px; /* Width of the thumb */
+    height: 15px; /* Height of the thumb */
+    border-radius: 50%; /* Round thumb */
+    background: #fc8b24; /* Thumb color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+#priceOptions input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fc8b24;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#priceOptions input[type="range"]:hover {
+    opacity: 1; /* Fully opaque on hover */
+}
+
+#priceOptions label {
+    color: #FFFFFF; /* White text color */
+    margin-top: 10px; /* Add some margin */
+}
+
+#priceOptions .btn-secondary {
+    margin-top: 10px; /* Add some margin */
+}

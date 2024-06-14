@@ -1,0 +1,246 @@
+/* General Body and Form Styles */
+body {
+    background-color: #181B2F;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.upper-banner {
+    background-color: #101322; /* Darker color for the banner */
+    padding: 20px 0; /* Adjust padding as needed */
+    position: fixed; /* Fix the banner at the top */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    height: 75px;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.upper-banner .container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+    position: relative; /* To position the back arrow and logo correctly */
+    height: 100%; /* Ensure the container takes the full height of the banner */
+}
+
+.upper-banner .back-arrow {
+    position: absolute;
+    left: 10px; /* Adjust distance from the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    height: 30px;
+    width: 30px;
+}
+
+.upper-banner .logo {
+    height: 50px;
+    width: 145px;
+    object-fit: contain;
+}
+
+.container2 {
+    margin-top: 40px;
+    max-width: 100%;
+    padding: 0 10px; /* Add padding to ensure content does not touch the edges */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
+
+.card-preview {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: 0 auto 20px auto;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.card-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.card-display {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    outline: none;
+    width: 80%;
+    text-align: center;
+}
+
+.card-number {
+    position: absolute;
+    top: 52%;
+    left: 7%;
+    font-size: 1.8em;
+}
+
+.card-holder-name {
+    position: absolute;
+    bottom: 25%;
+    left: 1%;
+    font-size: 1em;
+}
+
+.expiration-date {
+    position: absolute;
+    bottom: 30%;
+    left: 26%;
+    font-size: 1.3em;
+}
+
+.cvv {
+    position: absolute;
+    bottom: 47%;
+    left: 17%;
+    font-size: 1em;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-top: -40px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+.invalid-input {
+    border: 2px solid red !important;
+}
+
+input[type="text"],
+input[type="month"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #3A3E54;
+    color: #FFFFFF; /* Ensure text color is white */
+}
+
+input[type="text"]:focus,
+input[type="month"]:focus,
+textarea:focus,
+select:focus {
+    background-color: #3A3E54;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    color: #FFFFFF; /* Ensure text color remains white */
+}
+
+@media only screen and (max-width: 835px) {
+    .container2 {
+        margin-top: 50px;
+        padding: 0 10px;
+    }
+
+    .card-preview {
+        width: 100%; /* Make the card full width */
+        min-width: 320px;
+        max-width: 400px; /* Limit the maximum width to 400px */
+        height: 230px;
+        margin: 0 auto 20px auto;
+        display: flex; /* Use flexbox to center the image */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    
+    .card-image {
+        max-width: 100%; /* Ensure the image fits within the container */
+        max-height: 100%; /* Ensure the image fits within the container */
+    }
+    
+    .card-details {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+    }
+    
+    .card-display {
+        background: transparent;
+        border: none;
+        color: #FFFFFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        outline: none;
+        width: 80%;
+        text-align: center;
+    }
+    
+    .card-number {
+        position: absolute;
+        top: 51%;
+        left: 7%;
+        font-size: 1em;
+    }
+    
+    .card-holder-name {
+        position: absolute;
+        bottom: 25%;
+        left: 4%;
+        font-size: 0.7em;
+    }
+    
+    .expiration-date {
+        position: absolute;
+        bottom: 30%;
+        left: 26%;
+        font-size: 0.8em;
+    }
+    
+    .cvv {
+        position: absolute;
+        bottom: 47%;
+        left: 18%;
+        font-size: 0.7em;
+    }
+    
+    .form-group {
+        padding: 0 10px;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
