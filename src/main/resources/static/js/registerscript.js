@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const dobError = document.getElementById('dob').nextElementSibling;
     const emailError = document.getElementById('email').nextElementSibling;
 
-    const usernamePattern = /^[a-zA-Z]+$/; //Only English letters
+    const usernamePattern = /^[a-zA-Z0-9]+$/; //Only English letters
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; //Password format validation
     const phoneNumberPattern = /^\d+$/; //Phone number valdiation
     const namePattern = /^[A-Za-z]+$/; //Name Validation
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function validateUsername() {
         if (!usernamePattern.test(usernameInput.value)) {
             usernameInput.classList.add('is-invalid');
-            usernameError.textContent = "Username must contain only English letters.";
+            usernameError.textContent = "Username must contain only English letters and digits.";
         } else if (usernameInput.value.length < 4 || usernameInput.value.length > 20) {
             usernameInput.classList.add('is-invalid');
             usernameError.textContent = "Username must be between 4 and 20 characters.";
