@@ -7,29 +7,29 @@ body {
 }
 
 .upper-banner {
-    background-color: #101322; /* Darker color for the banner */
-    padding: 20px 0; /* Adjust padding as needed */
-    position: fixed; /* Fix the banner at the top */
-    top: 0; /* Position at the top */
-    left: 0; /* Align to the left */
-    width: 100%; /* Full width */
+    background-color: #101322; 
+    padding: 20px 0; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
     height: 75px;
-    z-index: 1000; /* Ensure it appears above other content */
+    z-index: 1000; 
 }
 
 .upper-banner .container1 {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the items horizontally */
-    position: relative; /* To position the back arrow and logo correctly */
-    height: 100%; /* Ensure the container takes the full height of the banner */
+    justify-content: center; 
+    position: relative; 
+    height: 100%; 
 }
 
 .upper-banner .back-arrow {
     position: absolute;
-    left: 10px; /* Adjust distance from the left */
+    left: 10px; 
     top: 50%;
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-50%); 
     height: 30px;
     width: 30px;
 }
@@ -45,10 +45,10 @@ body {
 }
 
 .game-card {
-    background-color: #20243A; /* Set background color */
-    border-radius: 10px; /* Add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transition */
+    background-color: #20243A; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s, box-shadow 0.3s; 
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -56,10 +56,10 @@ body {
 }
 
 .game-photo {
-    width: 90px; /* Adjust as needed */
+    width: 90px; 
     height: 90px;
     margin-right: 20px;
-    object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+    object-fit: cover; 
     border-radius: 15px;
 }
 
@@ -89,10 +89,10 @@ h2, h3, h4, h5 {
 }
 
 .order-details {
-    background-color: #20243A; /* Set background color */
-    border-radius: 10px; /* Add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    transition: transform 0.3s, box-shadow 0.3s; /* Add smooth transition */
+    background-color: #20243A; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s, box-shadow 0.3s; 
     display: flex;
     align-items: center;
     padding: 10px;
@@ -100,9 +100,9 @@ h2, h3, h4, h5 {
 }
 
 .button-container {
-    display: flex; /* Use flexbox to align buttons in a row */
+    display: flex; 
    
-    margin-top: 20px; /* Adjust margin as needed */
+    margin-top: 20px;
 }
 
 .btn-primary,
@@ -135,20 +135,20 @@ h2, h3, h4, h5 {
 
 @media only screen and (max-width: 600px) {
     .upper-banner .container1 {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center items horizontally */
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .button-container {
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: center; /* Center items horizontally */
-        margin-top: 10px; /* Reduce top margin */
+        flex-direction: column; 
+        align-items: center; 
+        margin-top: 10px; 
     }
 
     .btn-primary,
     .cancel-button {
-        width: 290px; /* Make buttons full-width */
-        margin: 5px 0; /* Add vertical margin */
+        width: 290px; 
+        margin: 5px 0;
     }
     
 }

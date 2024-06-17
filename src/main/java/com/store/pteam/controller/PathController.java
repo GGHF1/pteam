@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PathController implements ErrorController {
 
-    private static final String PATH = "/error";
+    private static final String PATH = "/error"; // For all incorrect paths
 
     @RequestMapping(value = PATH)
     public String handleError() {

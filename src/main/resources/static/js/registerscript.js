@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const emailInput = document.getElementById('email');
     const registerButton = document.querySelector('.btn-register');
 
-    // Error message elements
     const usernameError = document.getElementById('usernameError');
     const passwordError = document.getElementById('passwordError');
     const confirmPasswordError = document.getElementById('confirmPasswordError');
@@ -20,13 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const dobError = document.getElementById('dob').nextElementSibling;
     const emailError = document.getElementById('email').nextElementSibling;
 
-    // Regular expressions for validation
-    const usernamePattern = /^[a-zA-Z]+$/; // Only English letters
-
-    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    const phoneNumberPattern = /^\d+$/;
-    const namePattern = /^[A-Za-z]+$/;
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
+    const usernamePattern = /^[a-zA-Z]+$/; //Only English letters
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; //Password format validation
+    const phoneNumberPattern = /^\d+$/; //Phone number valdiation
+    const namePattern = /^[A-Za-z]+$/; //Name Validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //Email format validation
 
     // Event listeners for input validation
     usernameInput.addEventListener('input', validateUsername);
@@ -115,24 +112,22 @@ document.addEventListener("DOMContentLoaded", function() {
         checkFormValidity();
     }
 
-    // Validate date of birth for minimum age of 16
+    // Validate DOB for min age of 16
     function validateDOB() {
         const dobValue = dobInput.value;
         const selectedDate = new Date(dobValue);
         const currentDate = new Date();
         const minAge = 16;
 
-        // Calculate age based on date difference
         const age = currentDate.getFullYear() - selectedDate.getFullYear();
         const monthDifference = currentDate.getMonth() - selectedDate.getMonth();
         const dayDifference = currentDate.getDate() - selectedDate.getDate();
 
-        // Check if the selected date is in the future
         if (selectedDate > currentDate) {
             dobInput.classList.add('is-invalid');
             dobError.textContent = "Date of birth cannot be in the future.";
         }
-        // Check if the user hasn't reached the minimum age
+
         else if (age < minAge || (age === minAge && (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)))) {
             dobInput.classList.add('is-invalid');
             dobError.textContent = `You must be at least ${minAge} years old.`;
@@ -143,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
         checkFormValidity();
     }
 
-    // Function to check form validity and enable/disable register button
+    // Function to check form validity
     function checkFormValidity() {
         if (form.checkValidity() && !usernameInput.classList.contains('is-invalid') && !passwordInput.classList.contains('is-invalid') &&
             !confirmPasswordInput.classList.contains('is-invalid') && !phoneNumberInput.classList.contains('is-invalid') &&
@@ -155,7 +150,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Form validation on submit
     function validateForm(event) {
         validateUsername();
         validatePassword();
@@ -164,24 +158,17 @@ document.addEventListener("DOMContentLoaded", function() {
         validateName.call(fnameInput);
         validateName.call(lnameInput);
         validateDOB();
-        validateEmail(); // Add email validation check
+        validateEmail();
 
-        // Prevent form submission if any field is invalid
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
 
-        // Add 'was-validated' class to display validation messages
         form.classList.add('was-validated');
-
-        // Check form validity after adding 'was-validated' class
         checkFormValidity();
     }
 
-    // Enable/disable register button based on form validity on input
     form.addEventListener('input', checkFormValidity);
-
-    // Form submission handler
     form.addEventListener('submit', validateForm);
 });

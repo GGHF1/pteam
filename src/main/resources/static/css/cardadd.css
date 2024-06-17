@@ -1,11 +1,10 @@
-/* General Body and Form Styles */
 body {
     background-color: #181B2F;
     color: #FFFFFF;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; 
 }
 
 html, body {
@@ -14,29 +13,29 @@ html, body {
 }
 
 .upper-banner {
-    background-color: #101322; /* Darker color for the banner */
-    padding: 20px 0; /* Adjust padding as needed */
-    position: fixed; /* Fix the banner at the top */
-    top: 0; /* Position at the top */
-    left: 0; /* Align to the left */
-    width: 100%; /* Full width */
+    background-color: #101322; 
+    padding: 20px 0; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
     height: 75px;
-    z-index: 1000; /* Ensure it appears above other content */
+    z-index: 1000; 
 }
 
 .upper-banner .container1 {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the items horizontally */
-    position: relative; /* To position the back arrow and logo correctly */
-    height: 100%; /* Ensure the container takes the full height of the banner */
+    justify-content: center; 
+    position: relative; 
+    height: 100%; 
 }
 
 .upper-banner .back-arrow {
     position: absolute;
-    left: 10px; /* Adjust distance from the left */
+    left: 10px; 
     top: 50%;
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-50%); 
     height: 30px;
     width: 30px;
 }
@@ -50,8 +49,8 @@ html, body {
 .container2 {
     margin-top: 40px;
     max-width: 100%;
-    padding: 0 10px; /* Add padding to ensure content does not touch the edges */
-    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+    padding: 0 10px; 
+    box-sizing: border-box; 
 }
 
 .card-preview {
@@ -151,7 +150,7 @@ select {
     border-radius: 5px;
     box-sizing: border-box;
     background-color: #3A3E54;
-    color: #FFFFFF; /* Ensure text color is white */
+    color: #FFFFFF; 
 }
 
 input[type="text"]:focus,
@@ -161,7 +160,7 @@ select:focus {
     background-color: #3A3E54;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    color: #FFFFFF; /* Ensure text color remains white */
+    color: #FFFFFF; 
 }
 
 @media only screen and (max-width: 835px) {
@@ -171,19 +170,19 @@ select:focus {
     }
 
     .card-preview {
-        width: 100%; /* Make the card full width */
+        width: 100%; 
         min-width: 320px;
-        max-width: 400px; /* Limit the maximum width to 400px */
+        max-width: 400px; 
         height: 230px;
         margin: 0 auto 20px auto;
-        display: flex; /* Use flexbox to center the image */
-        justify-content: center; /* Center horizontally */
-        align-items: center; /* Center vertically */
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
     }
     
     .card-image {
-        max-width: 100%; /* Ensure the image fits within the container */
-        max-height: 100%; /* Ensure the image fits within the container */
+        max-width: 100%; 
+        max-height: 100%; 
     }
     
     .card-details {

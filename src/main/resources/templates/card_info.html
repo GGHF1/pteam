@@ -24,7 +24,6 @@
                 <div th:each="card, cardStat : ${userCards}" class="card-body">
                     <h2 class="card-title">Card <span th:text="__${#vars.cardStat.index + 1}__"></span></h2>
                     <hr class="card-divider">
-                    <!-- Adjusted card number display based on service type -->
                     <p class="card-number">
                         <span th:if="${card.serviceType == 'Mastercard' || card.serviceType == 'Visa'}">************</span>
                         <span th:if="${card.serviceType == 'American Express'}">***********</span>
@@ -32,7 +31,6 @@
                     </p>
                     <p class="card-expiration"><span th:text="${#temporals.format(card.expirationDate, 'MM/yy')}"></span></p>
                     <p class="card-status" th:text="${card.cardStatus}" th:attr="data-status=${card.cardStatus}"></p>
-                    <!-- Display Mastercard logo if service type is Mastercard -->
                     <img th:if="${card.serviceType == 'Mastercard'}" src="/images/MA.png" class="mastercard-logo" alt="Mastercard Logo">
                     <img th:if="${card.serviceType == 'Visa'}" src="/images/VS.png" class="visa-logo" alt="Visa Logo">
                     <img th:if="${card.serviceType == 'American Express'}" src="/images/AMEX.png" class="amex-logo" alt="Amex Logo">

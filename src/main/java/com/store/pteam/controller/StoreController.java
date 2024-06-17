@@ -52,6 +52,7 @@ public class StoreController {
         model.addAttribute("games", games);
         return "index";
     }
+
     @GetMapping("/main")
     public String mainPage(Model model, HttpSession session) {
         User loggedInUser = (User) session.getAttribute("loggedInUser");
@@ -89,46 +90,45 @@ public class StoreController {
     }
 
     @PostMapping("/addToCart/{gameId}")
-public String addToCart(@PathVariable Long gameId, HttpSession session) {
-    // Retrieve logged-in user from session
-    User loggedInUser = (User) session.getAttribute("loggedInUser");
-    
-    // If user is not logged in, redirect to login page
-    if (loggedInUser == null) {
-        return "redirect:/login";
-    }
-
-    // Check if the game is already in the cart or a pending order
-    Game game = gameService.getGameById(gameId);
-    if (game != null) {
-        // Check if the game is already in the cart
-        List<Cart> cartItems = cartService.getCartItems(loggedInUser);
-        boolean isInCart = cartItems.stream()
-                                .anyMatch(cart -> cart.getGame().getId().equals(gameId));
-
-        // Check if the game is in any pending orders
-        boolean isInPendingOrder = orderService.getPendingOrders(loggedInUser).stream()
-                                        .flatMap(order -> order.getOrderItems().stream())
-                                        .anyMatch(orderItem -> orderItem.getGame().getId().equals(gameId));
-
-        if (isInCart || isInPendingOrder) {
-            // Game is already in cart or pending order, redirect back to store
-            return "redirect:/store?gameAdded=true";
-        } else {
-            // Proceed with adding the game to cart
-            Cart cartItem = new Cart();
-            cartItem.setUser(loggedInUser);
-            cartItem.setGame(game);
-            cartItem.setPrice(game.getPrice().setScale(2, RoundingMode.HALF_UP));
-
-            // Add the cart item to the cart
-            cartService.addToCart(cartItem);
+    public String addToCart(@PathVariable Long gameId, HttpSession session) {
+        // Retrieve logged-in user from session
+        User loggedInUser = (User) session.getAttribute("loggedInUser");
+        
+        // If user is not logged in, redirect to login page
+        if (loggedInUser == null) {
+            return "redirect:/login";
         }
+
+        // Check if the game is already in the cart or a pending order
+        Game game = gameService.getGameById(gameId);
+        if (game != null) {
+            // Check if the game is already in the cart
+            List<Cart> cartItems = cartService.getCartItems(loggedInUser);
+            boolean isInCart = cartItems.stream()
+                                    .anyMatch(cart -> cart.getGame().getId().equals(gameId));
+
+            // Check if the game is in any pending orders
+            boolean isInPendingOrder = orderService.getPendingOrders(loggedInUser).stream()
+                                            .flatMap(order -> order.getOrderItems().stream())
+                                            .anyMatch(orderItem -> orderItem.getGame().getId().equals(gameId));
+
+            if (isInCart || isInPendingOrder) {
+                // Game is already in cart or pending order, redirect back to store
+                return "redirect:/store?gameAdded=true";
+            } else {
+                // Proceed with adding the game to cart
+                Cart cartItem = new Cart();
+                cartItem.setUser(loggedInUser);
+                cartItem.setGame(game);
+                cartItem.setPrice(game.getPrice().setScale(2, RoundingMode.HALF_UP));
+
+                // Add the cart item to the cart
+                cartService.addToCart(cartItem);
+            }
+        }
+
+        return "redirect:/store";
     }
-
-    return "redirect:/store";
-}
-
 
     @GetMapping("/cart/items")
     @ResponseBody

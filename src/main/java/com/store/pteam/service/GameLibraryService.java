@@ -37,7 +37,7 @@ public class GameLibraryService {
         if (gameLibrary != null) {
             return gameLibrary.getGames();
         }
-        return Collections.emptyList(); // Return an empty list if no game library is found
+        return Collections.emptyList();
     }
 
     public boolean isGameInLibrary(User user, Game game) {
@@ -45,6 +45,6 @@ public class GameLibraryService {
         if (gameLibrary != null) {
             return gameLibrary.getGames().contains(game);
         }
-        return false; // Return false if no game library is found
+        return false; 
     }
 }

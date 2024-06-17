@@ -7,27 +7,27 @@ body {
 }
 
 .upper-banner {
-    background-color: #101322; /* Darker color for the banner */
-    padding: 20px 0; /* Adjust padding as needed */
-    position: fixed; /* Fix the banner at the top */
-    top: 0; /* Position at the top */
-    left: 0; /* Align to the left */
-    width: 100%; /* Full width */
+    background-color: #101322; 
+    padding: 20px 0; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
     height: 90px;
-    z-index: 1000; /* Ensure it appears above other content */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    z-index: 1000; 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    box-sizing: border-box; 
 }
 
 .upper-banner .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ensure it takes the full width of the banner */
-    padding: 0 20px; /* Add horizontal padding */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    width: 100%; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
 }
 
 .upper-banner img {
@@ -49,19 +49,17 @@ body {
     width: auto;
 }
 
-/* Media Query for Mobile Devices */
 @media only screen and (max-width: 600px) {
     .upper-banner .container {
-        flex-direction: row; /* Change direction to row for logo and drawer icon */
-        align-items: center; /* Center items vertically */
+        flex-direction: row; 
+        align-items: center; 
         justify-content: space-between;
     }
 
     .button-container {
-        display: none; /* Hide the button container on mobile */
+        display: none; 
     }
 
-    /* Styles for the mobile drawer toggle button */
     .mobile-drawer-toggle {
         display: block;
         background: none;
@@ -76,90 +74,85 @@ body {
     }
 
     .mobile-drawer-toggle img {
-        height: 30px; /* Adjust the height of the icon */
-        width: auto; /* Maintain aspect ratio */
+        height: 30px; 
+        width: auto; 
     } 
 
-    /* Styles for the mobile drawer */
     .mobile-drawer {
-        display: none; /* Hide the mobile drawer by default */
-        position: fixed; /* Fix the drawer to the viewport */
+        display: none; 
+        position: fixed; 
         top: 0;
-        right: -250px; /* Hide off-screen to the right */
+        right: -250px; 
         bottom: 0;
         background-color: #101322;
         padding: 10px;
         width: 70%;
         max-width: 250px;
-        z-index: 9999; /* Ensure it appears above other content */
-        overflow-y: auto; /* Allow scrolling if content overflows */
-        transition: right 0.3s ease; /* Smooth transition */
+        z-index: 9999; 
+        overflow-y: auto; 
+        transition: right 0.3s ease; 
     }
 
-    /* Show the mobile drawer when toggle button is clicked */
     .mobile-drawer.active {
-        right: 0; /* Slide in from the right */
+        right: 0; 
         display: flex;
         flex-direction: column;
     }
 
-    /* Adjust styling for the links inside the mobile drawer */
     .mobile-drawer.active a {
         margin-bottom: 10px;
     }
 
-    /* Adjust logo position for mobile */
     .upper-banner img {
-        margin: auto; /* Center the image */
+        margin: auto; 
     }
 
     .single-card .row {
-        flex-direction: column; /* Stack the columns vertically */
+        flex-direction: column; 
     }
 
     .image-container, .image-container2 {
-        padding: 10px; /* Reduce padding to fit content better on small screens */
+        padding: 10px; 
     }
 
     .image-container img, .image-container2 img {
-        border-radius: 10px; /* Adjust border radius for a smaller screen */
+        border-radius: 10px; 
     }
 
     .content {
-        text-align: left; /* Align text to the left for better readability */
-        margin: 10px; /* Reduce margin for better spacing on small screens */
+        text-align: left; 
+        margin: 10px; 
     }
 
     .content h3 {
-        font-size: 1.5rem; /* Reduce font size for headings */
+        font-size: 1.5rem; 
         color: #CCCCCC;
         margin-bottom: 10px;
     }
 
     .content p {
-        font-size: 1rem; /* Reduce font size for paragraphs */
+        font-size: 1rem; 
         color: #DDDDDD;
         margin-bottom: 10px;
     }
 
     .btn-primary {
-        width: 100%; /* Make buttons full-width on mobile */
-        margin: 10px 0; /* Add vertical margin between buttons */
+        width: 100%; 
+        margin: 10px 0; 
     }
 }
 
 @media only screen and (max-width: 991px) {
     .upper-banner .container {
-        flex-direction: row; /* Change direction to row for logo and drawer icon */
-        align-items: center; /* Center items vertically */
+        flex-direction: row; 
+        align-items: center; 
         justify-content: space-between;
     }
 
     .button-container {
-        display: none; /* Hide the button container on mobile */
+        display: none; 
     }
 
-    /* Styles for the mobile drawer toggle button */
     .mobile-drawer-toggle {
         display: block;
         background: none;
@@ -174,45 +167,40 @@ body {
     }
 
     .mobile-drawer-toggle img {
-        height: 30px; /* Adjust the height of the icon */
-        width: auto; /* Maintain aspect ratio */
+        height: 30px; 
+        width: auto; 
     } 
 
-    /* Styles for the mobile drawer */
     .mobile-drawer {
-        display: none; /* Hide the mobile drawer by default */
-        position: fixed; /* Fix the drawer to the viewport */
+        display: none; 
+        position: fixed; 
         top: 0;
-        right: -250px; /* Hide off-screen to the right */
+        right: -250px; 
         bottom: 0;
         background-color: #101322;
         padding: 10px;
         width: 70%;
         max-width: 250px;
-        z-index: 9999; /* Ensure it appears above other content */
-        overflow-y: auto; /* Allow scrolling if content overflows */
-        transition: right 0.3s ease; /* Smooth transition */
+        z-index: 9999; 
+        overflow-y: auto; 
+        transition: right 0.3s ease; 
     }
 
-    /* Show the mobile drawer when toggle button is clicked */
     .mobile-drawer.active {
-        right: 0; /* Slide in from the right */
+        right: 0; 
         display: flex;
         flex-direction: column;
     }
 
-    /* Adjust styling for the links inside the mobile drawer */
     .mobile-drawer.active a {
         margin-bottom: 10px;
     }
 
-    /* Adjust logo position for mobile */
     .upper-banner img {
-        margin: auto; /* Center the image */
+        margin: auto; 
     }
 }
 
-/* Hide the mobile drawer toggle button on larger screens */
 @media only screen and (min-width: 992px) {
     .mobile-drawer-toggle {
         display: none;
@@ -229,7 +217,7 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 1200px;
-    margin: 50px auto; /* Center the card horizontally */
+    margin: 50px auto; 
     padding: 20px;
     margin-top: 130px;
 }

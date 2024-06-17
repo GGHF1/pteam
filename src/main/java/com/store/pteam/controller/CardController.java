@@ -32,7 +32,6 @@ public class CardController {
                         @RequestParam("expirationDate") String expirationDateString,
                         @RequestParam("cvv") String cvv,
                         RedirectAttributes redirectAttributes) {
-
         // Determine the card service type
         String serviceType = determineCardServiceType(cardNumber);
         if (serviceType == null) {
@@ -60,30 +59,24 @@ public class CardController {
         // Create a new card object with status set to "Active"
         Card card = new Card(cardNumber, uppercaseCardHolderName, expirationDate, cvv, serviceType, "Active");
         card.setUser(loggedInUser);
-
-        // Save the card to the database
         cardService.saveCard(card);
 
-        // Redirect to a success page
         redirectAttributes.addFlashAttribute("successMessage", "Card added successfully!");
-        return "redirect:/users"; // Redirect to the user's profile page
+        return "redirect:/users"; 
     }
 
     @GetMapping("/addcard")
     public String showAddCardForm(@SessionAttribute("loggedInUser") User loggedInUser, Model model) {
-        return "card"; // Assuming you have an HTML template named "card.html"
+        return "card"; 
     }
 
     @GetMapping("/cardinfo")
     public String viewCards(@SessionAttribute("loggedInUser") User loggedInUser, Model model) {
         // Retrieve cards for the logged-in user from the database
         List<Card> userCards = cardService.getCardsByUser(loggedInUser);
-        
-        // Add the list of user cards to the model to be accessed in the HTML file
         model.addAttribute("userCards", userCards);
         
-        // Return the name of the HTML file to be rendered
-        return "card_info"; // Assuming you have an HTML template named "card_info.html"
+        return "card_info";
     }
 
     private String determineCardServiceType(String cardNumber) {
@@ -96,6 +89,6 @@ public class CardController {
         } else if (cardNumber.startsWith("2") && (Integer.parseInt(cardNumber.substring(0, 4)) >= 2221 && Integer.parseInt(cardNumber.substring(0, 4)) <= 2720)) {
             return "Mastercard";
         }
-        return null; // Invalid card number
+        return null;
     }    
 }

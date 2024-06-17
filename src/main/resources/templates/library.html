@@ -35,8 +35,6 @@
                             <button type="button" class="btn btn-secondary" data-toggle="modal" th:data-target="'#gameModal' + ${game.id}">About</button>
                         </div>
                     </div>
-                    
-                    <!-- Modal for each game -->
                     <div class="modal fade" th:id="'gameModal' + ${game.id}" tabindex="-1" role="dialog" aria-labelledby="gameModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">

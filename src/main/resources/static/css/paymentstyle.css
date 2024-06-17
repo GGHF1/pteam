@@ -85,19 +85,19 @@ h1, h2, h3 {
     border: 1px solid #44475A;
     border-radius: 5px;
     padding: 10px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition for smooth effect */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
 }
 
 .form-group input:focus, .form-group select:focus {
-    background-color: #2C2F4A; /* Maintain background color on focus */
-    color: #FFFFFF; /* Maintain text color on focus */
-    outline: none; /* Remove default outline */
-    border-color: #00BFFF; /* Optional: Add a border color on focus */
+    background-color: #2C2F4A; 
+    color: #FFFFFF; 
+    outline: none; 
+    border-color: #00BFFF; 
 }
 
 .form-group input[readonly] {
-    background-color: #2C2F4A; /* Ensure read-only fields have the same background color */
-    color: #FFFFFF; /* Ensure read-only fields have the same text color */
+    background-color: #2C2F4A; 
+    color: #FFFFFF; 
 }
 
 .btn-primary {

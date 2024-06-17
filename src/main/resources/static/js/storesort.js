@@ -26,7 +26,7 @@ $(document).ready(function() {
         sessionStorage.removeItem('isSortedByLtoH');
         sessionStorage.removeItem('isSortedByAToZ');
         sessionStorage.removeItem('isSortedByZToA');
-        // Refresh the store page
+        // Reload the page
         window.location.href = '/store';
     });
 
@@ -35,20 +35,15 @@ $(document).ready(function() {
         // Store sorting state in session
         sessionStorage.setItem('isSortedByHtoL', true);
 
-        // Get the game list container
         var gameList = $(".game-container");
-
-        // Get the list of game items
         var games = gameList.children(".game-card");
-
-        // Sort the games by price
+        // Sort the games by price (high to low)
         games.sort(function(a, b) {
             var priceA = parseFloat($(a).find(".price").text().replace("Price: $", ""));
             var priceB = parseFloat($(b).find(".price").text().replace("Price: $", ""));
-            return priceB - priceA; // Sort in descending order (high to low)
+            return priceB - priceA; 
         });
 
-        // Re-append sorted game items to the container
         gameList.empty().append(games);
     }
 
@@ -57,20 +52,15 @@ $(document).ready(function() {
         // Store sorting state in session
         sessionStorage.setItem('isSortedByLtoH', true);
 
-        // Get the game list container
         var gameList = $(".game-container");
-
-        // Get the list of game items
         var games = gameList.children(".game-card");
-
         // Sort the games by price (low to high)
         games.sort(function(a, b) {
             var priceA = parseFloat($(a).find(".price").text().replace("Price: $", ""));
             var priceB = parseFloat($(b).find(".price").text().replace("Price: $", ""));
-            return priceA - priceB; // Sort in ascending order (low to high)
+            return priceA - priceB; 
         });
 
-        // Re-append sorted game items to the container
         gameList.empty().append(games);
     }
 
@@ -79,12 +69,8 @@ $(document).ready(function() {
         // Store sorting state in session
         sessionStorage.setItem('isSortedByAToZ', true);
 
-        // Get the game list container
         var gameList = $(".game-container");
-
-        // Get the list of game items
         var games = gameList.children(".game-card");
-
         // Sort the games by title alphabetically A to Z
         games.sort(function(a, b) {
             var titleA = $(a).find(".game-title").text().toUpperCase();
@@ -98,7 +84,6 @@ $(document).ready(function() {
             return 0;
         });
 
-        // Re-append sorted game items to the container
         gameList.empty().append(games);
     }
 
@@ -107,10 +92,7 @@ $(document).ready(function() {
         // Store sorting state in session
         sessionStorage.setItem('isSortedByZToA', true);
 
-        // Get the game list container
         var gameList = $(".game-container");
-
-        // Get the list of game items
         var games = gameList.children(".game-card");
 
         // Sort the games by title alphabetically Z to A
@@ -125,8 +107,7 @@ $(document).ready(function() {
             }
             return 0;
         });
-
-        // Re-append sorted game items to the container
+        
         gameList.empty().append(games);
     }
 

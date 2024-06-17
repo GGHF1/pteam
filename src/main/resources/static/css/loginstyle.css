@@ -81,7 +81,7 @@ input[type="password"] {
     border-radius: 5px;
     box-sizing: border-box;
     background-color: #3A3E54;
-    color: #FFFFFF; /* Ensure text color is white */
+    color: #FFFFFF; 
 }
 
 input[type="text"]:focus,
@@ -89,7 +89,7 @@ input[type="password"]:focus {
     background-color: #3A3E54;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    color: #FFFFFF; /* Ensure text color remains white */
+    color: #FFFFFF; 
 }
 
 .link-container {

@@ -34,14 +34,12 @@ function checkFormCompletion() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Listen for changes in the card selection and form inputs
     document.getElementById("cardId").addEventListener("change", checkFormCompletion);
     var formInputs = document.querySelectorAll("input[required], #termsCheckbox");
     formInputs.forEach(function(input) {
         input.addEventListener("input", checkFormCompletion);
     });
 
-    // Listen for city input changes to provide instant feedback
     document.getElementById("city").addEventListener("input", function() {
         var cityInput = document.getElementById("city");
         var cityValue = cityInput.value;
@@ -52,14 +50,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Highlight unfilled required fields when hovering over the disabled button
+    // Highlight unfilled required fields
     document.getElementById("purchaseButton").addEventListener("mouseover", function() {
         var formInputs = document.querySelectorAll("input[required]:not(:valid)");
         formInputs.forEach(function(input) {
             input.style.border = "1px solid red";
         });
 
-        // Highlight Terms checkbox and Select Card if not completed
+        // Highlight Terms checkbox and Select Card 
         var termsAccepted = document.getElementById("termsCheckbox").checked;
         var cardSelected = document.getElementById("cardId").value !== "";
         var termsCheckbox = document.getElementById("termsCheckbox");
@@ -78,14 +76,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Reset styles on form fields when moving mouse away from the button
+    // Reset styles of form fields when moving mouse away from the button
     document.getElementById("purchaseButton").addEventListener("mouseout", function() {
         var formInputs = document.querySelectorAll("input[required]");
         formInputs.forEach(function(input) {
             input.style.border = "";
         });
 
-        // Reset Terms checkbox and Select Card highlighting
+        // Reset Terms checkbox and Select Card form highlight
         var termsCheckbox = document.getElementById("termsCheckbox");
         var cardDropdown = document.getElementById("cardId");
 

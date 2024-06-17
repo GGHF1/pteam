@@ -24,6 +24,4 @@ public class OrderItemService {
     public List<OrderItem> getOrderItemsByOrder(Order order) {
         return orderItemRepository.findByOrder(order);
     }
-
-    // Add more methods as needed
 }

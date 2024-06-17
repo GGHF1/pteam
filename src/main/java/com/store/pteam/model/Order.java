@@ -48,7 +48,7 @@ public class Order {
     
     public Order() {
         this.orderItems = new ArrayList<>();
-        this.totalPrice = BigDecimal.ZERO; // Initialize totalPrice
+        this.totalPrice = BigDecimal.ZERO; 
     }
 
 }

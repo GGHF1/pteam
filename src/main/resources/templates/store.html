@@ -42,13 +42,10 @@
             </div>
         </div>
         <div class="game-container">
-            <!-- Loop through each game and display it as a card -->
             <div th:each="game : ${games}" class="game-card">
-                <!-- Inside the card-body div for each game -->
                 <div class="card-body">
                     <h5 class="card-title game-title" th:text="${game.title}"></h5>
                     <h6 class="card-subtitle mb-2 text-muted game-info" th:text="${game.genre}"></h6>
-                    <!-- Replace the description with a custom photo -->
                     <img class="game-photo" alt="Game Photo">
                     <div class="price-container">
                         <p class="price" th:text="'Price: $' + ${game.price}"></p>
@@ -59,12 +56,9 @@
                         <p class="game-publisher" style="display: none;" th:text="'Publisher: ' + ${game.publisher}"></p>
                         <p class="game-release-date" style="display: none;" th:text="'Release Date: ' + ${#dates.format(game.releaseDate, 'dd-MM-yyyy')}"></p>
                     </div>
-                    <!-- Buy button -->
                     <div class="button-container">
                         <form th:action="@{/addToCart/{gameId}(gameId=${game.id})}" method="post">
-                            <!-- If the game is purchased, disable the button -->
                             <button type="submit" th:if="${purchasedMap[game.id]}" class="btn btn-primary buy-btn" th:text="'Purchased'" disabled="disabled"></button>
-                            <!-- If the game is not purchased, display the Buy button -->
                             <button type="submit" th:unless="${purchasedMap[game.id]}" class="btn btn-primary buy-btn" th:text="'Add To Cart'"></button>
                         </form>
                         <button class="btn btn-secondary info-btn">Info</button>  
@@ -72,11 +66,9 @@
                 </div>
             </div>
         </div>
-        <!-- Button to navigate back to the main page -->
         <a href="/main" class="btn btn-back">Back to Main Page</a>
     </div>
 
-    <!-- Modal -->
     <div class="modal fade" id="gameModal" tabindex="-1" role="dialog" aria-labelledby="gameModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -87,7 +79,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- Game information will be populated here -->
                     <p class="game-description"></p>
                     <p class="game-developer"></p>
                     <p class="game-publisher"></p>
@@ -97,7 +88,6 @@
         </div>
     </div>
 
-    <!-- Modal for displaying cart items -->
     <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -107,13 +97,11 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="cartItems">
-                    <!-- Cart items will be populated here dynamically -->
-                </div>
+                <div class="modal-body" id="cartItems"></div>
                 <div class="modal-footer">
                     <p id="totalPrice">Total Price: $0.00</p>
                     <form id="checkoutForm" action="/checkout" method="post">
-                        <input type="hidden" id="totalPriceInput" name="totalPrice"> <!-- This input captures the total price -->
+                        <input type="hidden" id="totalPriceInput" name="totalPrice"> 
                         <button type="submit" class="btn btn-primary">Checkout</button>
                     </form>
                 </div>

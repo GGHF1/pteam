@@ -56,8 +56,7 @@ public class OrderService {
             Order order = optionalOrder.get();
             // Remove order items
             order.getOrderItems().clear();
-            orderRepository.save(order); // Update order to remove order items
-
+            orderRepository.save(order); 
             // Delete order
             orderRepository.delete(order);
         }
@@ -75,7 +74,6 @@ public class OrderService {
                 for (OrderItem item : orderItems) {
                     orderItemRepository.delete(item);
                 }
-
                 // Delete order
                 orderRepository.delete(order);
             }
@@ -85,9 +83,9 @@ public class OrderService {
     public Order getPendingOrder(User user) {
         List<Order> pendingOrders = orderRepository.findByUserAndStatus(user, "pending");
         if (!pendingOrders.isEmpty()) {
-            return pendingOrders.get(0); // Assuming you want to return the first pending order
+            return pendingOrders.get(0); 
         }
-        return null; // Return null if no pending order found
+        return null; 
     }
 
 }

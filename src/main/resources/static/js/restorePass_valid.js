@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!btnRestorePassword.hasAttribute('disabled')) {
             // Form is valid, proceed with submission
         } else {
-            // Form is invalid, prevent submission
             event.preventDefault();
         }
     });

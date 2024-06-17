@@ -1,4 +1,3 @@
-/* Reset default styles */
 body {
     background-color: #181B2F;
     color: #FFFFFF;
@@ -8,29 +7,29 @@ body {
 }
 
 .upper-banner {
-    background-color: #101322; /* Darker color for the banner */
-    padding: 20px 0; /* Adjust padding as needed */
-    position: fixed; /* Fix the banner at the top */
-    top: 0; /* Position at the top */
-    left: 0; /* Align to the left */
-    width: 100%; /* Full width */
+    background-color: #101322; 
+    padding: 20px 0; 
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    width: 100%; 
     height: 90px;
-    z-index: 1000; /* Ensure it appears above other content */
+    z-index: 1000; 
 }
 
 .upper-banner .container1 {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the items horizontally */
-    position: relative; /* To position the back arrow and logo correctly */
-    height: 100%; /* Ensure the container takes the full height of the banner */
+    justify-content: center; 
+    position: relative; 
+    height: 100%; 
 }
 
 .upper-banner .back-arrow {
     position: absolute;
-    left: 10px; /* Adjust distance from the left */
+    left: 10px; 
     top: 50%;
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-50%); 
     height: 30px;
     width: 30px;
 }
@@ -41,9 +40,8 @@ body {
     object-fit: contain;
 }
 
-/* Container styles */
 .container {
-    margin-top: 110px; /* Adjusted to account for fixed banner */
+    margin-top: 110px; 
 }
 
 h1{
@@ -51,12 +49,10 @@ h1{
     margin-left: 10px;
 }
 
-/* Game list styles */
 .row {
-    justify-content: left; /* Align the game cards to the left */
+    justify-content: left; 
 }
 
-/* Game card styles */
 .game-card {
     background-color: #20243A;
     border: none;
@@ -65,68 +61,62 @@ h1{
     transition: transform 0.2s;
     display: flex;
     flex-direction: row;
-    align-items: center; /* Center content vertically */
-    justify-content: space-between; /* Space out content horizontally */
-    margin-bottom: 20px; /* Add margin between cards */
-    padding: 20px; /* Add padding inside the card */
+    align-items: center; 
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+    padding: 20px; 
 }
 
 .game-card:hover {
-    transform: scale(1.02); /* Slightly enlarge the card on hover */
+    transform: scale(1.02); 
 }
 
-/* Game photo styles */
 .game-photo {
-    width: 150px; /* Set the width */
-    height: 150px; /* Set the height */
-    object-fit: cover; /* Maintain aspect ratio and cover the given size */
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover; 
     border-radius: 15px;
 }
 
-/* Card body styles */
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Align text to the left */
-    flex: 1; /* Ensure card body takes available space */
-    padding-left: 20px; /* Add padding to the left */
+    align-items: flex-start; 
+    flex: 1; 
+    padding-left: 20px; 
 }
 
-/* Game title styles */
 .card-title {
     font-size: 1.5rem;
-    margin: 0; /* Remove default margin */
-    text-align: left; /* Align text to the left */
+    margin: 0; 
+    text-align: left; 
 }
 
-/* Button container styles */
 .button-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Align buttons to the right */
-    gap: 10px; /* Space between buttons */
+    align-items: flex-end; 
+    gap: 10px; 
 }
 
-/* Button styles */
 .btn {
-    width: 100px; /* Set a fixed width for buttons */
+    width: 100px; 
     padding: 0.5rem 1rem;
 }
 
 .btn-primary {
-    background-color: #28a745; /* Green background color for play button */
+    background-color: #28a745; 
     border: none;
     color: #FFFFFF;
 }
 
 .btn-secondary {
-    background-color: #6c757d; /* Grey background color for about button */
+    background-color: #6c757d; 
     border: none;
     color: #FFFFFF;
 }
 
-/* Modal styles */
 .modal-content {
     background-color: #20243A;
     color: #FFFFFF;
@@ -162,64 +152,63 @@ h1{
 }
 
 .close {
-    color: #FFFFFF; /* Color of close button */
-    outline: none; /* Remove outline */
+    color: #FFFFFF; 
+    outline: none; 
 }
 
 .close:hover,
 .close:focus {
-    color: #CCCCCC; /* Hover/focus color of close button */
+    color: #CCCCCC; 
 }
 
-/* Mobile styles */
 @media only screen and (max-width: 600px) {
     .upper-banner .container {
-        flex-direction: row; /* Change direction to row for logo and drawer icon */
-        align-items: center; /* Center items vertically */
+        flex-direction: row; 
+        align-items: center; 
         justify-content: space-between;
     }
 
     .upper-banner .logo {
-        margin: auto; /* Center the image */
+        margin: auto; 
     }
 
     .container {
-        margin-top: 100px; /* Adjust margin to account for reduced banner height */
+        margin-top: 100px;
     }
 
     .game-card {
-        flex-direction: column; /* Stack card content vertically */
-        align-items: center; /* Center align content */
-        padding: 10px; /* Reduce padding */
+        flex-direction: column; 
+        align-items: center; 
+        padding: 10px; 
     }
 
     .game-photo {
-        width: 100%; /* Full width for the image */
-        height: auto; /* Maintain aspect ratio */
-        border-radius: 15px; /* Adjust border radius */
+        width: 100%; 
+        height: auto; 
+        border-radius: 15px; 
     }
 
     .card-body {
-        padding-left: 0; /* Remove left padding */
-        align-items: center; /* Center align text */
-        text-align: center; /* Center align text */
+        padding-left: 0; 
+        align-items: center; 
+        text-align: center; 
     }
 
     .card-title {
-        font-size: 1.25rem; /* Adjust font size */
-        margin-top: 10px; /* Add margin to top */
+        font-size: 1.25rem;
+        margin-top: 10px; 
         text-align: center;
     }
 
     .button-container {
-        align-items: center; /* Center align buttons */
-        width: 100%; /* Full width */
-        margin-top: 10px; /* Add margin to top */
+        align-items: center; 
+        width: 100%; 
+        margin-top: 10px; 
     }
 
     .btn {
-        width: 100%; /* Full width for buttons */
-        margin-bottom: 10px; /* Add margin between buttons */
+        width: 100%; 
+        margin-bottom: 10px; 
     }
 
 }

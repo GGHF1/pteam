@@ -144,13 +144,13 @@ public class UserController {
     public String users(Model model, HttpSession session) {
         User loggedInUser = (User) session.getAttribute("loggedInUser");
         if (loggedInUser == null) {
-            return "redirect:/login"; // Redirect to login page if user not authenticated
+            return "redirect:/login"; 
         }
         
         // Get the logged-in user's information
         model.addAttribute("user", loggedInUser);
         
-        return "users"; // Display user info page
+        return "users"; 
     }
 
     @GetMapping("/gamelibrary")

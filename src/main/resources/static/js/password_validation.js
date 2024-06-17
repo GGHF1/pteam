@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Function to check form validity and enable/disable submit button
+    // Function to check form validity 
     function validateForm() {
         const isNewPasswordValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(newPasswordInput.value);
         const isConfirmPasswordValid = confirmPasswordInput.value === newPasswordInput.value;
@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Event listeners for input fields
     newPasswordInput.addEventListener('input', function() {
         validatePassword();
         validateForm();
@@ -71,6 +70,5 @@ document.addEventListener("DOMContentLoaded", function() {
         validateForm();
     });
 
-    // Initial form validation check
     validateForm();
 });

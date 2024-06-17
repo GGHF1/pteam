@@ -147,27 +147,27 @@ body {
 }
 @media (max-width: 600px) {
    .upper-banner .container1 {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center items horizontally */
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .upper-banner .logo {
-        margin: auto; /* Center the image */
+        margin: auto; 
     }
 
     .card-container {
-        grid-template-columns: 1fr; /* Display cards in a single column */
-        padding: 10px; /* Adjust padding for better spacing */
+        grid-template-columns: 1fr; 
+        padding: 10px; 
     }
 
     .card-body {
-        width: 100%; /* Make card full width */
+        width: 100%; 
         max-width: 250px;
-        height: auto; /* Allow height to adjust based on content */
+        height: auto; 
     }
 
     .card-divider {
-        display: none; /* Hide card divider on mobile */
+        display: none; 
     }
 
     .mastercard-logo,
@@ -179,11 +179,11 @@ body {
     }
 
     .container2 {
-        margin-top: 80px; /* Adjust margin from the top */
+        margin-top: 80px; 
     }
 
     .checkout-box {
-        padding: 20px; /* Adjust padding for better spacing */
-        max-width: 100%; /* Allow box to take full width of the screen */
+        padding: 20px; 
+        max-width: 100%; 
     }
 }

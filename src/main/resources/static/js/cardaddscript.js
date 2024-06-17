@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const step1 = document.getElementById('step1');
     const step2 = document.getElementById('step2');
     const nextButton = document.getElementById('nextButton');
-    const errorMessage = document.getElementById('errorMessage'); // New error message element
-    const errorMsg = document.getElementById('errorMsg'); // New error message element
-    const expiryErrorMessage = document.getElementById('expiryErrorMessage'); // New error message element
+    const errorMessage = document.getElementById('errorMessage'); 
+    const errorMsg = document.getElementById('errorMsg'); 
+    const expiryErrorMessage = document.getElementById('expiryErrorMessage'); 
 
     const displayCardNumber = document.getElementById('displayCardNumber');
     const displayCardHolderName = document.getElementById('displayCardHolderName');
@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Event listener for the Next button
     nextButton.addEventListener('click', function() {
         if (!validateCardNumber(cardNumberInput.value)) {
             
@@ -99,12 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
         checkFormValidity();
     });
 
-    // Function to format card number
+    // Format card number
     function formatCardNumber(value) {
         return value.replace(/\s?/g, '').replace(/(\d{4})/g, '$1 ').trim();
     }
 
-    // Function to validate card number and apply red border if invalid
+    // Validation of card number and apply red border if invalid
     function validateCardNumber(cardNumber) {
         const cardNumberPattern = /^(4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|2(?:22[1-9]|2[3-9][0-9]|[3-6][0-9]{2}|7[01][0-9]|720)[0-9]{12}|3[47][0-9]{13})$/;
         if (cardNumberPattern.test(cardNumber.replace(/\s+/g, ''))) {
@@ -118,22 +117,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Function to validate cardholder name (only letters and spaces allowed)
+    // Validation of cardholder name 
     function validateCardHolderName(cardHolderName) {
-        return /^[a-zA-Z\s]+$/.test(cardHolderName.trim()); // Only letters and spaces allowed
+        return /^[a-zA-Z\s]+$/.test(cardHolderName.trim()); 
     }
 
-    // Function to check if expiration date is valid (future date)
+    // Function to check if expiration date is valid
     function isExpirationDateValid(expirationDateString) {
         const [year, month] = expirationDateString.split('-');
         // Calculate the last day of the expiration month
-        const expirationDate = new Date(year, month, 0); // 0 means the last day of the previous month
+        const expirationDate = new Date(year, month, 0); 
 
         // Get the current date, without time component
         const currentDate = new Date();
-        currentDate.setHours(0, 0, 0, 0); // Set current date to midnight
+        // Set current date to midnight
+        currentDate.setHours(0, 0, 0, 0); 
 
-        // Compare expiration date (end of the month) with current date
         return expirationDate >= currentDate;
     }
 });
