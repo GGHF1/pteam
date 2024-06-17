@@ -125,9 +125,9 @@ body {
 .amex-logo{
     position: absolute;
     width: 40px; 
-    height: 30px; 
+    height: 40px; 
     margin-left: 170px;
-    margin-top: 85px
+    margin-top: 80px
 }
 
 .container2 {
@@ -171,7 +171,8 @@ body {
     }
 
     .mastercard-logo,
-    .visa-logo {
+    .visa-logo,
+    .amex-logo{
         position: absolute;
         margin-left: 140px;
         margin-top: 60px;

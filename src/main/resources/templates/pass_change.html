@@ -37,6 +37,9 @@
                         <div id="confirmPasswordError" class="error-message"></div>
                     </div>
                     <button type="submit" class="btn btn-primary" disabled>Change Password</button>
+                    <div th:if="${param.error}" class="alert alert-danger mt-3">
+                        Invalid Password. Please try again.
+                    </div>
                 </form>
             </div>
         </div>

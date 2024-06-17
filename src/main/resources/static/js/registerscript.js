@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const fnameInput = document.getElementById('fname');
     const lnameInput = document.getElementById('lname');
     const dobInput = document.getElementById('dob');
+    const emailInput = document.getElementById('email');
     const registerButton = document.querySelector('.btn-register');
 
     // Error message elements
@@ -17,12 +18,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const fnameError = document.getElementById('fname').nextElementSibling;
     const lnameError = document.getElementById('lname').nextElementSibling;
     const dobError = document.getElementById('dob').nextElementSibling;
+    const emailError = document.getElementById('email').nextElementSibling;
 
     // Regular expressions for validation
-    const usernamePattern = /^[a-zA-Z0-9]{1,20}$/;
+    const usernamePattern = /^[a-zA-Z]+$/; // Only English letters
+
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     const phoneNumberPattern = /^\d+$/;
     const namePattern = /^[A-Za-z]+$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
 
     // Event listeners for input validation
     usernameInput.addEventListener('input', validateUsername);
@@ -32,15 +36,16 @@ document.addEventListener("DOMContentLoaded", function() {
     fnameInput.addEventListener('input', validateName);
     lnameInput.addEventListener('input', validateName);
     dobInput.addEventListener('input', validateDOB);
+    emailInput.addEventListener('input', validateEmail);
 
     // Validate username
     function validateUsername() {
         if (!usernamePattern.test(usernameInput.value)) {
             usernameInput.classList.add('is-invalid');
-            usernameError.textContent = "Username must be between 1 and 20 characters and contain only letters and numbers.";
-        } else if (usernameInput.value.length < 4) {
+            usernameError.textContent = "Username must contain only English letters.";
+        } else if (usernameInput.value.length < 4 || usernameInput.value.length > 20) {
             usernameInput.classList.add('is-invalid');
-            usernameError.textContent = "Username must be at least 4 characters long.";
+            usernameError.textContent = "Username must be between 4 and 20 characters.";
         } else {
             usernameInput.classList.remove('is-invalid');
             usernameError.textContent = "";
@@ -98,6 +103,18 @@ document.addEventListener("DOMContentLoaded", function() {
         checkFormValidity();
     }
 
+    // Validate email
+    function validateEmail() {
+        if (!emailPattern.test(emailInput.value)) {
+            emailInput.classList.add('is-invalid');
+            emailError.textContent = "Enter a valid email address.";
+        } else {
+            emailInput.classList.remove('is-invalid');
+            emailError.textContent = "";
+        }
+        checkFormValidity();
+    }
+
     // Validate date of birth for minimum age of 16
     function validateDOB() {
         const dobValue = dobInput.value;
@@ -107,9 +124,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Calculate age based on date difference
         const age = currentDate.getFullYear() - selectedDate.getFullYear();
+        const monthDifference = currentDate.getMonth() - selectedDate.getMonth();
+        const dayDifference = currentDate.getDate() - selectedDate.getDate();
 
+        // Check if the selected date is in the future
+        if (selectedDate > currentDate) {
+            dobInput.classList.add('is-invalid');
+            dobError.textContent = "Date of birth cannot be in the future.";
+        }
         // Check if the user hasn't reached the minimum age
-        if (age < minAge) {
+        else if (age < minAge || (age === minAge && (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)))) {
             dobInput.classList.add('is-invalid');
             dobError.textContent = `You must be at least ${minAge} years old.`;
         } else {
@@ -124,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (form.checkValidity() && !usernameInput.classList.contains('is-invalid') && !passwordInput.classList.contains('is-invalid') &&
             !confirmPasswordInput.classList.contains('is-invalid') && !phoneNumberInput.classList.contains('is-invalid') &&
             !fnameInput.classList.contains('is-invalid') && !lnameInput.classList.contains('is-invalid') &&
-            !dobInput.classList.contains('is-invalid')) {
+            !dobInput.classList.contains('is-invalid') && !emailInput.classList.contains('is-invalid')) {
             registerButton.removeAttribute('disabled');
         } else {
             registerButton.setAttribute('disabled', 'disabled');
@@ -140,6 +164,7 @@ document.addEventListener("DOMContentLoaded", function() {
         validateName.call(fnameInput);
         validateName.call(lnameInput);
         validateDOB();
+        validateEmail(); // Add email validation check
 
         // Prevent form submission if any field is invalid
         if (form.checkValidity() === false) {

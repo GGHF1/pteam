@@ -1,14 +1,22 @@
 $(document).ready(function() {
-    // Handler for the "Sort by Price" button click
+    // Handler for the "Sort by Price (High to Low)" button click
     $("#sortHighToLowBtn").click(function() {
-        // Perform sorting by price
         sortGamesHighToLow();
     });
 
     // Handler for the "Sort by Price (Low to High)" button click
     $("#sortLowToHighBtn").click(function() {
-        // Perform sorting by price (low to high)
         sortGamesLowToHigh();
+    });
+
+    // Handler for the "Sort by Title (A-Z)" button click
+    $("#sortAToZBtn").click(function() {
+        sortGamesAToZ();
+    });
+
+    // Handler for the "Sort by Title (Z-A)" button click
+    $("#sortZToABtn").click(function() {
+        sortGamesZToA();
     });
 
     // Handler for the "Reset" button click
@@ -16,32 +24,13 @@ $(document).ready(function() {
         // Remove sorting state from session
         sessionStorage.removeItem('isSortedByHtoL');
         sessionStorage.removeItem('isSortedByLtoH');
+        sessionStorage.removeItem('isSortedByAToZ');
+        sessionStorage.removeItem('isSortedByZToA');
         // Refresh the store page
         window.location.href = '/store';
     });
 
-    $(".game-container").on("click", ".info-btn", function() {
-        // Get the game details from the corresponding game card
-        var gameCard = $(this).closest(".game-card");
-        var gameTitle = gameCard.find(".game-title").text();
-        var gameDescription = gameCard.find(".game-description").text();
-        var gameDeveloper = gameCard.find(".game-developer").text();
-        var gamePublisher = gameCard.find(".game-publisher").text();
-        var gameReleaseDate = gameCard.find(".game-release-date").text();
-
-        // Populate the game details modal with the retrieved information
-        $("#gameModal .modal-title").text(gameTitle);
-        $("#gameModal .game-description").text(gameDescription);
-        $("#gameModal .game-developer").text(gameDeveloper);
-        $("#gameModal .game-publisher").text(gamePublisher);
-        $("#gameModal .game-release-date").text(gameReleaseDate);
-
-        // Show the game details modal
-        $("#gameModal").modal("show");
-    });
-
-
-
+    // Function to sort games by price (High to Low)
     function sortGamesHighToLow() {
         // Store sorting state in session
         sessionStorage.setItem('isSortedByHtoL', true);
@@ -63,12 +52,7 @@ $(document).ready(function() {
         gameList.empty().append(games);
     }
 
-    // Check sorting state when the page loads
-    if (sessionStorage.getItem('isSortedByHtoL') === 'true') {
-        sortGamesHighToLow(); // Reapply sorting if necessary
-    }
-
-    // Function to sort games from low to high
+    // Function to sort games by price (Low to High)
     function sortGamesLowToHigh() {
         // Store sorting state in session
         sessionStorage.setItem('isSortedByLtoH', true);
@@ -90,9 +74,76 @@ $(document).ready(function() {
         gameList.empty().append(games);
     }
 
-    // Check sorting state when the page loads
-    if (sessionStorage.getItem('isSortedByLtoH') === 'true') {
-        sortGamesLowToHigh(); // Reapply sorting if necessary
+    // Function to sort games alphabetically by title A to Z
+    function sortGamesAToZ() {
+        // Store sorting state in session
+        sessionStorage.setItem('isSortedByAToZ', true);
+
+        // Get the game list container
+        var gameList = $(".game-container");
+
+        // Get the list of game items
+        var games = gameList.children(".game-card");
+
+        // Sort the games by title alphabetically A to Z
+        games.sort(function(a, b) {
+            var titleA = $(a).find(".game-title").text().toUpperCase();
+            var titleB = $(b).find(".game-title").text().toUpperCase();
+            if (titleA < titleB) {
+                return -1;
+            }
+            if (titleA > titleB) {
+                return 1;
+            }
+            return 0;
+        });
+
+        // Re-append sorted game items to the container
+        gameList.empty().append(games);
     }
 
+    // Function to sort games alphabetically by title Z to A
+    function sortGamesZToA() {
+        // Store sorting state in session
+        sessionStorage.setItem('isSortedByZToA', true);
+
+        // Get the game list container
+        var gameList = $(".game-container");
+
+        // Get the list of game items
+        var games = gameList.children(".game-card");
+
+        // Sort the games by title alphabetically Z to A
+        games.sort(function(a, b) {
+            var titleA = $(a).find(".game-title").text().toUpperCase();
+            var titleB = $(b).find(".game-title").text().toUpperCase();
+            if (titleA > titleB) {
+                return -1;
+            }
+            if (titleA < titleB) {
+                return 1;
+            }
+            return 0;
+        });
+
+        // Re-append sorted game items to the container
+        gameList.empty().append(games);
+    }
+
+    // Check sorting state when the page loads
+    if (sessionStorage.getItem('isSortedByHtoL') === 'true') {
+        sortGamesHighToLow();
+    }
+
+    if (sessionStorage.getItem('isSortedByLtoH') === 'true') {
+        sortGamesLowToHigh();
+    }
+
+    if (sessionStorage.getItem('isSortedByAToZ') === 'true') {
+        sortGamesAToZ();
+    }
+
+    if (sessionStorage.getItem('isSortedByZToA') === 'true') {
+        sortGamesZToA();
+    }
 });

@@ -18,6 +18,9 @@
                 <div id="drawer" class="drawer">
                     <button id="sortHighToLowBtn" class="btn btn-draw">Sort by Price (High to Low)</button><br>
                     <button id="sortLowToHighBtn" class="btn btn-draw">Sort by Price (Low to High)</button><br>
+                    <button id="sortAToZBtn" class="btn btn-draw">Sort by Title (A-Z)</button><br>
+                    <button id="sortZToABtn" class="btn btn-draw">Sort by Title (Z-A)</button><br>
+                    <button id="showAddToCartOnly" class="btn btn-draw2">Don't Show Purchased</button><br>
                     <button id="filterByGenreBtn" class="btn btn-draw">Filter by Genre</button><br>
                     <div id="genreOptions" style="display: none;">
                         <select id="genreDropdown" class="form-control"></select>
@@ -28,9 +31,7 @@
                         <label for="minPrice">Min Price: <span id="minPriceValue">0</span></label>
                         <input type="range" id="maxPrice" name="maxPrice" min="0" max="100" value="100" step="1">
                         <label for="maxPrice">Max Price: <span id="maxPriceValue">100</span></label>
-                        
                     </div>
-
                 </div>
                 <button id="resetBtn" class="btn btn-rst">Reset</button>
                 <div class="cart-icon" data-toggle="modal" data-target="#cartModal">

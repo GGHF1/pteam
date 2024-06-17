@@ -1,3 +1,4 @@
+/* General Body and Form Styles */
 body {
     background-color: #181B2F;
     color: #FFFFFF;
@@ -5,6 +6,11 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .upper-banner {
@@ -41,149 +47,200 @@ body {
     object-fit: contain;
 }
 
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-    padding: 20px;
-    justify-items: center;
+.container2 {
+    margin-top: 40px;
+    max-width: 100%;
+    padding: 0 10px; /* Add padding to ensure content does not touch the edges */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
 }
 
-.card-body {
-    background-color: #2C3E50;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+.card-preview {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin: 0 auto 20px auto;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.card-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 150px;
-    overflow: hidden;
-    width: 250px;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
 }
 
-.card-title {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.card-divider {
-    border-top: 1px solid #FFFFFF;
-    margin-bottom: 0px;
+.card-display {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    outline: none;
+    width: 80%;
+    text-align: center;
 }
 
 .card-number {
-    font-size: 16px;
-    color: #FFFFFF;
-    margin-bottom: 5px;
-}
-
-.card-expiration{
-    font-size: 14px;
-    color: #FFFFFF;
-    margin-bottom: 5px;
-
-}
-
-.card-status {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-/* Add hover effect */
-.card-body:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Conditional styling based on card status */
-.card-status[data-status="Active"] {
-    color: #00FF00; /* Neon green */
-}
-
-.card-status[data-status="Inactive"] {
-    color: #FF0000; /* Red */
-}
-
-/* Mastercard logo styling */
-.mastercard-logo {
     position: absolute;
-    width: 40px; 
-    height: 40px; 
-    margin-left: 170px;
-    margin-top: 80px
+    top: 52%;
+    left: 7%;
+    font-size: 1.8em;
 }
 
-.visa-logo {
+.card-holder-name {
     position: absolute;
-    width: 40px; 
-    height: 40px; 
-    margin-left: 170px;
-    margin-top: 80px
+    bottom: 25%;
+    left: 1%;
+    font-size: 1em;
 }
 
-.amex-logo{
+.expiration-date {
     position: absolute;
-    width: 40px; 
-    height: 40px; 
-    margin-left: 170px;
-    margin-top: 80px
+    bottom: 30%;
+    left: 26%;
+    font-size: 1.3em;
 }
 
-.container2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    padding: 20px;
+.cvv {
+    position: absolute;
+    bottom: 47%;
+    left: 17%;
+    font-size: 1em;
 }
-.checkout-box {
-    background-color: #20243A;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-top: -40px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+.invalid-input {
+    border: 2px solid red !important;
+}
+
+input[type="text"],
+input[type="month"],
+textarea,
+select {
     width: 100%;
-    max-width: 800px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #3A3E54;
+    color: #FFFFFF; /* Ensure text color is white */
 }
-@media (max-width: 600px) {
-   .upper-banner .container1 {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center items horizontally */
-    }
 
-    .upper-banner .logo {
-        margin: auto; /* Center the image */
-    }
+input[type="text"]:focus,
+input[type="month"]:focus,
+textarea:focus,
+select:focus {
+    background-color: #3A3E54;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    color: #FFFFFF; /* Ensure text color remains white */
+}
 
-    .card-container {
-        grid-template-columns: 1fr; /* Display cards in a single column */
-        padding: 10px; /* Adjust padding for better spacing */
-    }
-
-    .card-body {
-        width: 100%; /* Make card full width */
-        max-width: 250px;
-        height: auto; /* Allow height to adjust based on content */
-    }
-
-    .card-divider {
-        display: none; /* Hide card divider on mobile */
-    }
-
-    .mastercard-logo,
-    .visa-logo,
-    .amex-logo{
-        position: absolute;
-        margin-left: 140px;
-        margin-top: 60px;
-    }
-
+@media only screen and (max-width: 835px) {
     .container2 {
-        margin-top: 80px; /* Adjust margin from the top */
+        margin-top: 50px;
+        padding: 0 10px;
     }
 
-    .checkout-box {
-        padding: 20px; /* Adjust padding for better spacing */
-        max-width: 100%; /* Allow box to take full width of the screen */
+    .card-preview {
+        width: 100%; /* Make the card full width */
+        min-width: 320px;
+        max-width: 400px; /* Limit the maximum width to 400px */
+        height: 230px;
+        margin: 0 auto 20px auto;
+        display: flex; /* Use flexbox to center the image */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    
+    .card-image {
+        max-width: 100%; /* Ensure the image fits within the container */
+        max-height: 100%; /* Ensure the image fits within the container */
+    }
+    
+    .card-details {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+    }
+    
+    .card-display {
+        background: transparent;
+        border: none;
+        color: #FFFFFF;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        outline: none;
+        width: 80%;
+        text-align: center;
+    }
+    
+    .card-number {
+        position: absolute;
+        top: 51%;
+        left: 7%;
+        font-size: 1em;
+    }
+    
+    .card-holder-name {
+        position: absolute;
+        bottom: 25%;
+        left: 4%;
+        font-size: 0.7em;
+    }
+    
+    .expiration-date {
+        position: absolute;
+        bottom: 30%;
+        left: 26%;
+        font-size: 0.8em;
+    }
+    
+    .cvv {
+        position: absolute;
+        bottom: 47%;
+        left: 18%;
+        font-size: 0.7em;
+    }
+    
+    .form-group {
+        padding: 0 10px;
+        width: 80%;
+        margin: 0 auto;
     }
 }

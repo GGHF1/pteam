@@ -3,16 +3,19 @@ function applyFilters() {
     var selectedGenre = document.getElementById('genreDropdown').value;
     var minPrice = parseFloat(document.getElementById('minPrice').value);
     var maxPrice = parseFloat(document.getElementById('maxPrice').value);
+    var showAddToCartOnly = document.getElementById('showAddToCartOnly').classList.contains('active');
     var gameCards = document.querySelectorAll('.game-card');
 
     gameCards.forEach(function(card) {
         var genre = card.querySelector('.game-info').textContent.trim();
         var price = parseFloat(card.querySelector('.price').textContent.replace('Price: $', ''));
+        var purchased = card.querySelector('.buy-btn').disabled;
 
         var genreMatches = selectedGenre === '' || genre === selectedGenre;
         var priceMatches = price >= minPrice && price <= maxPrice;
+        var addToCartMatches = !showAddToCartOnly || !purchased;
 
-        if (genreMatches && priceMatches) {
+        if (genreMatches && priceMatches && addToCartMatches) {
             card.style.display = 'block'; // Show game card if both genre and price match
         } else {
             card.style.display = 'none'; // Hide game card if either genre or price don't match
@@ -47,6 +50,11 @@ document.getElementById('minPrice').addEventListener('input', function() {
 document.getElementById('maxPrice').addEventListener('input', function() {
     document.getElementById('maxPriceValue').textContent = this.value;
     applyFilters(); // Apply combined filters dynamically
+});
+
+document.getElementById('showAddToCartOnly').addEventListener('click', function() {
+    this.classList.toggle('active'); // Toggle the 'active' class on click
+    applyFilters(); // Apply filters when the button is clicked
 });
 
 // Function to get unique list of game genres

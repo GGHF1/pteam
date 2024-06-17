@@ -245,7 +245,7 @@ body {
     height: auto; /* Show the drawer when it's open */
 }
 
-.btn-draw {
+.btn-draw, .btn-draw2 {
     display: block;
     width: 100%;
     padding: 8px 0; /* Reduce padding for a smaller size */
@@ -367,4 +367,15 @@ body {
 
 #priceOptions .btn-secondary {
     margin-top: 10px; /* Add some margin */
+}
+.btn.btn-draw2.active {
+    background-color: orange;
+    color: white; /* Adjust text color for better visibility */
+}
+.btn-draw2:hover, .btn-draw2:focus{
+    color: #ffffff;
+    background-color: none; /* Add !important */
+    outline: none; /* Remove the blue outline */
+    border-color: none;
+    box-shadow: none; /* Remove any default box shadow */
 }

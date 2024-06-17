@@ -82,6 +82,7 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" id="email" name="emailAddress" maxlength="254" required>
+                    <div class="error-message"></div>
                 </div>
             </div>
             <div th:if="${param.error}" class="alert alert-danger mt-3">

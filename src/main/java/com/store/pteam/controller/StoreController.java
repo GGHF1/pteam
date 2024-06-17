@@ -89,18 +89,33 @@ public class StoreController {
     }
 
     @PostMapping("/addToCart/{gameId}")
-    public String addToCart(@PathVariable Long gameId, HttpSession session) {
-        // Retrieve logged-in user from session
-        User loggedInUser = (User) session.getAttribute("loggedInUser");
-        
-        // If user is not logged in, redirect to login page
-        if (loggedInUser == null) {
-            return "redirect:/login";
-        }
+public String addToCart(@PathVariable Long gameId, HttpSession session) {
+    // Retrieve logged-in user from session
+    User loggedInUser = (User) session.getAttribute("loggedInUser");
+    
+    // If user is not logged in, redirect to login page
+    if (loggedInUser == null) {
+        return "redirect:/login";
+    }
 
-        // User is logged in, proceed with adding the game to cart
-        Game game = gameService.getGameById(gameId);
-        if (game != null) {
+    // Check if the game is already in the cart or a pending order
+    Game game = gameService.getGameById(gameId);
+    if (game != null) {
+        // Check if the game is already in the cart
+        List<Cart> cartItems = cartService.getCartItems(loggedInUser);
+        boolean isInCart = cartItems.stream()
+                                .anyMatch(cart -> cart.getGame().getId().equals(gameId));
+
+        // Check if the game is in any pending orders
+        boolean isInPendingOrder = orderService.getPendingOrders(loggedInUser).stream()
+                                        .flatMap(order -> order.getOrderItems().stream())
+                                        .anyMatch(orderItem -> orderItem.getGame().getId().equals(gameId));
+
+        if (isInCart || isInPendingOrder) {
+            // Game is already in cart or pending order, redirect back to store
+            return "redirect:/store?gameAdded=true";
+        } else {
+            // Proceed with adding the game to cart
             Cart cartItem = new Cart();
             cartItem.setUser(loggedInUser);
             cartItem.setGame(game);
@@ -109,9 +124,11 @@ public class StoreController {
             // Add the cart item to the cart
             cartService.addToCart(cartItem);
         }
-
-        return "redirect:/store";
     }
+
+    return "redirect:/store";
+}
+
 
     @GetMapping("/cart/items")
     @ResponseBody
@@ -178,6 +195,9 @@ public class StoreController {
 
             // Clear the cart after successful checkout
             cartService.clearCart(loggedInUser);
+        }
+        else {
+            return "error"; 
         }
 
         // Retrieve all order items associated with the pending order

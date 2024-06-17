@@ -1,4 +1,12 @@
 $(document).ready(function() {
+    // Check if URL parameter gameAdded is true (indicating game was already added)
+    var urlParams = new URLSearchParams(window.location.search);
+    var gameAdded = urlParams.get('gameAdded');
+    if (gameAdded == 'true') {
+        // Show a message or perform an action indicating game is already added
+        console.log('Game is already added to cart or pending orders.');
+    }
+
     // Function to update cart count dynamically
     function updateCartCount(count) {
         $('#cartCount').text(count);

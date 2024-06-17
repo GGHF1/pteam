@@ -4,7 +4,6 @@ function updateCardId() {
 }
 
 function validateForm() {
-    // Check if all required fields are filled
     var isValid = true;
     var form = document.getElementById("paymentForm");
     var inputs = form.querySelectorAll("input[required]");
@@ -13,6 +12,17 @@ function validateForm() {
             isValid = false;
         }
     });
+    
+    // Check if the city contains only letters
+    var cityInput = document.getElementById("city");
+    var cityValue = cityInput.value;    
+    if (!/^[a-zA-Z\s]+$/.test(cityValue)) {
+        cityInput.classList.add("is-invalid");
+        isValid = false;
+    } else {
+        cityInput.classList.remove("is-invalid");
+    }
+    
     return isValid;
 }
 
@@ -29,6 +39,17 @@ document.addEventListener("DOMContentLoaded", function() {
     var formInputs = document.querySelectorAll("input[required], #termsCheckbox");
     formInputs.forEach(function(input) {
         input.addEventListener("input", checkFormCompletion);
+    });
+
+    // Listen for city input changes to provide instant feedback
+    document.getElementById("city").addEventListener("input", function() {
+        var cityInput = document.getElementById("city");
+        var cityValue = cityInput.value;
+        if (!/^[a-zA-Z\s]+$/.test(cityValue)) {
+            cityInput.classList.add("is-invalid");
+        } else {
+            cityInput.classList.remove("is-invalid");
+        }
     });
 
     // Highlight unfilled required fields when hovering over the disabled button
@@ -72,5 +93,3 @@ document.addEventListener("DOMContentLoaded", function() {
         cardDropdown.style.outline = "";
     });
 });
-
-
