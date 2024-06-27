@@ -168,18 +168,26 @@ public class UserController {
     }
 
     @GetMapping("/change-password")
-    public ModelAndView showChangePasswordForm(@RequestParam(name = "error", required = false) String error) {
+    public ModelAndView showChangePasswordForm(@RequestParam(name = "error", required = false) String error, HttpSession session) {
+        User loggedInUser = (User) session.getAttribute("loggedInUser");
+        if (loggedInUser == null) {
+            return new ModelAndView("redirect:/login");
+        }
         ModelAndView mav = new ModelAndView("pass_change");
         mav.addObject("errorMessage", error);
         return mav;
     }
-
+    
     @PostMapping("/change-password")
     public String changePassword(@SessionAttribute("loggedInUser") User loggedInUser, 
                                  @RequestParam("currentPassword") String currentPassword,
                                  @RequestParam("newPassword") String newPassword,
                                  @RequestParam("confirmNewPassword") String confirmNewPassword,
-                                 RedirectAttributes redirectAttributes) {
+                                 RedirectAttributes redirectAttributes, HttpSession session) {
+        if (loggedInUser == null) {
+            return "redirect:/login";
+        }
+        
         if (newPassword.equals(currentPassword)) {
             redirectAttributes.addFlashAttribute("errorMessage", "New passwords is the same as current one!");
             return "redirect:/change-password?error=true";
@@ -214,16 +222,10 @@ public class UserController {
                                 @RequestParam("confirmNewPassword") String confirmNewPassword,
                                 RedirectAttributes redirectAttributes) {
 
-        // Validate if new password and confirm password match
-        if (!newPassword.equals(confirmNewPassword)) {
-            redirectAttributes.addFlashAttribute("errorMessage", "Passwords do not match!");
-            return "redirect:/restore-password?error=true";
-        }
-
         boolean isRestored = userService.restorePassword(username, emailAddress, phoneNumber, newPassword);
         if (isRestored) {
             redirectAttributes.addFlashAttribute("successMessage", "Password restored successfully!");
-            return "redirect:/login?success=true";
+            return "redirect:/login";
         } else {
             redirectAttributes.addFlashAttribute("errorMessage", "Failed to restore password. Please check your credentials.");
             return "redirect:/restore-password?error=true";
