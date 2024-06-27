@@ -235,4 +235,3 @@ public class UserController {
         return countryCode + cleanedPhoneNumber;
     }
 }
-

@@ -34,5 +34,4 @@ public class GameLibrary {
             inverseJoinColumns = @JoinColumn(name = "game_id"))
     private List<Game> games = new ArrayList<>();
 
-    // Constructors, getters, and setters
 }

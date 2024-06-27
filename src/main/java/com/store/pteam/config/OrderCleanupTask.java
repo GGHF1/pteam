@@ -19,4 +19,3 @@ public class OrderCleanupTask {
         orderService.deleteExpiredOrders();
     }
 }
-
