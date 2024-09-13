@@ -1,1 +1,7 @@
-Pteam is an innovative platform dedicated to revolutionizing the gaming experience. With a focus on providing seamless transactions, Pteam offers users a convenient way to explore and purchase a diverse range of games. Through intuitive interfaces and robust security measures, Pteam ensures a safe and enjoyable shopping environment for gamers of all levels. Our commitment to excellence extends beyond transactions, as we strive to foster a vibrant gaming community through engaging content and personalized recommendations. Join Pteam today to unlock a world of gaming possibilities and embark on unforgettable adventures in virtual realms. Discover, connect, and game with Pteam
+DESCRIPTION:
+
+Pteam is an innovative platform dedicated to revolutionizing the gaming experience. With a focus on providing seamless transactions, Pteam offers users a convenient way to explore and purchase a diverse range of games.
+
+Installation:
+
+Installation and manual can be found in UserManual.pdf file.
